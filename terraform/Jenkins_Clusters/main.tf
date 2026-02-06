@@ -1,5 +1,5 @@
 module "gcp_vm_config" {
-  source     = "./modules/gcp_vm"
+  source     = "./modules/jenkins_vm"
   project_id = var.project_id
   for_each   = var.gcp_vm
 
