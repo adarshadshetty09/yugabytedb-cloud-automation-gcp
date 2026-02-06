@@ -5,6 +5,7 @@ End-to-end automation of YugabyteDB installation, configuration, cluster setup, 
 
 ## Repo Structure
 
+```
 yugabytedb-end-to-end-automation/
 │
 ├── packer/
@@ -49,3 +50,5 @@ yugabytedb-end-to-end-automation/
 │
 ├── README.md
 └── LICENSE
+
+```
