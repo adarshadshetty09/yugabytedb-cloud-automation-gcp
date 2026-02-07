@@ -41,7 +41,7 @@
   "provisioners": [
     {
       "type": "ansible",
-      "playbook_file": "/home/adev4769/jenkins/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
+      "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node",
       "extra_arguments": [
         "--vault-id=default@/home/adev4769/yba/packer/pass.txt"
       ],
