@@ -4,36 +4,31 @@
     "ssh_password": "{{user `ssh_password`}}"
   },
  
-  "builders": [
-    {
-      "type": "googlecompute",
-      "disk_size": 20,
-      "project_id": "project-af758472-c239-4625-869",
-      "network_project_id": "vpc-yugabyte-terraform-cluster",
-      "subnetwork": "yugabyte-sub-1",
-      "service_account_email": "296131585508-compute@developer.gserviceaccount.com",
-      "omit_external_ip": true,
-      "use_internal_ip": true,
-      "zone": "asia-south1-a",
- 
-      "source_image": "projects/rhel-cloud/global/images/family/rhel-9",
-      "tags": [
-        "allow-vidi-ssh",
-        "allow-zpa-ssh",
-        "dev-ssh-allow"
-      ],
- 
-      "ssh_username": "{{user `user_name`}}",
-      "ssh_password": "{{user `ssh_password`}}",
- 
-      "machine_type": "n2d-standard-4",
- 
-      "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
-      "image_storage_locations": [
-        "asia-south1"
-      ]
-    }
-  ],
+"builders": [
+  {
+    "type": "googlecompute",
+    "project_id": "project-af758472-c239-4625-869",
+    "zone": "asia-south1-a",
+    "machine_type": "n2d-standard-4",
+
+    "source_image_family": "rhel-9",
+    "source_image_project_id": "rhel-cloud",
+
+    "network_project_id": "vpc-yugabyte-terraform-cluster",
+    "subnetwork": "yugabyte-sub-1",
+
+    "omit_external_ip": true,
+    "use_internal_ip": true,
+
+    "service_account_email": "296131585508-compute@developer.gserviceaccount.com",
+
+    "ssh_username": "{{user `user_name`}}",
+    "ssh_password": "{{user `ssh_password`}}",
+
+    "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
+    "image_storage_locations": ["asia-south1"]
+  }
+],
  
   "provisioners": [
     {
