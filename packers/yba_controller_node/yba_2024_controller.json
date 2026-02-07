@@ -17,8 +17,8 @@
       "zone": "asia-south1-a",
  
       "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
-      "source_image_project_id": "custom-image",
-      "source_image_family": "csyua-gcp-mumbai-dev",
+      "source_image_project_id": "rhel-9",
+      "source_image_family": "rhel-9",
  
       "tags": [
         "allow-vidi-ssh",
