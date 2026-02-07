@@ -8,7 +8,7 @@
   {
     "type": "googlecompute",
     "project_id": "project-af758472-c239-4625-869",
-    "zone": "asia-south1-a",
+    "zone": "us-central-1a",
     "machine_type": "n2d-standard-4",
 
     "source_image_family": "rhel-9",
