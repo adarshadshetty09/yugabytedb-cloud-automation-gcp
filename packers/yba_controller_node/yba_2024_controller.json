@@ -14,7 +14,6 @@
     "source_image_family": "rhel-9",
     "source_image_project_id": "rhel-cloud",
 
-    "network_project_id": "vpc-yugabyte-terraform-cluster",
     "subnetwork": "yugabyte-sub-1",
 
     "omit_external_ip": true,
