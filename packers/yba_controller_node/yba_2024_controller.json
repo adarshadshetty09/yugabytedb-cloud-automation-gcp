@@ -19,7 +19,7 @@
     "omit_external_ip": true,
     "use_internal_ip": true,
 
-    "service_account_email": "296131585508-compute@developer.gserviceaccount.com",
+    "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
 
     "ssh_username": "{{user `user_name`}}",
     "ssh_password": "{{user `ssh_password`}}",
