@@ -12,8 +12,6 @@ sudo yum -y install packer
 packer plugins install github.com/hashicorp/googlecompute
 packer plugins install github.com/hashicorp/ansible
 packer plugins list
-packer plugins installed
-packer build yba_2024.json
 ```
 
 ### Update the kms to a packer
@@ -35,9 +33,7 @@ packer build --var-file=vars.json yba_2024_controller.json
       "source_image_family": "rhel-9",
 ```
 
-
-
-### Service account for packer 
+### Service account for packer
 
 ```
 gcloud iam service-accounts create packer \
