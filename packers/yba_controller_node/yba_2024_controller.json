@@ -16,8 +16,7 @@
       "use_internal_ip": true,
       "zone": "asia-south1-a",
  
-      "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
- 
+      "source_image": "projects/rhel-cloud/global/images/family/rhel-9",
       "tags": [
         "allow-vidi-ssh",
         "allow-zpa-ssh",
