@@ -22,10 +22,17 @@ packer build yba_2024.json
  "kms_key_name": "projects/hbl-dev-et-blr-prj-spk-5a/locations/asia-south1/keyRings/mdm-dev-kr/cryptoKeys/mdm-dev-key"
 ```
 
-
-
 ### To execute the file
 
 ```
 packer build --var-file=vars.json yba_2024_controller.json 
+```
+
+
+
+### Update
+
+```
+      "source_image_project_id": "rhel-9",
+      "source_image_family": "rhel-9",
 ```

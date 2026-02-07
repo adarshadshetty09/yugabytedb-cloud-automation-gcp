@@ -17,8 +17,6 @@
       "zone": "asia-south1-a",
  
       "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
-      "source_image_project_id": "rhel-9",
-      "source_image_family": "rhel-9",
  
       "tags": [
         "allow-vidi-ssh",
