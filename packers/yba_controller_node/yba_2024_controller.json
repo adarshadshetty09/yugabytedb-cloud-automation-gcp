@@ -33,9 +33,7 @@
       "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
       "image_storage_locations": [
         "asia-south1"
-      ],
- 
-      "kms_key_name": "projects/hbl-dev-et-blr-prj-spk-5a/locations/asia-south1/keyRings/mdm-dev-kr/cryptoKeys/mdm-dev-key"
+      ]
     }
   ],
  
