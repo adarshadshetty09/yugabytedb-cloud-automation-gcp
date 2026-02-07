@@ -13,6 +13,7 @@
       "subnetwork": "yugabyte-sub-1",
       "service_account_email": "296131585508-compute@developer.gserviceaccount.com",
       "omit_external_ip": true,
+      "use_internal_ip": true,
       "zone": "asia-south1-a",
  
       "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",

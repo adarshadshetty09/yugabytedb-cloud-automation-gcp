@@ -13,6 +13,7 @@
       "subnetwork": "hbl-dev-asia-do-subnet",
       "service_account_email": "hbl-dev-monitor@hbl-dev-et-blr-prj-spk-5a.iam.gserviceaccount.com",
       "omit_external_ip": true,
+      "use_internal_ip": true,
       "zone": "asia-south1-a",
  
       "source_image": "rhel-9x-byos-golden-image-dev-april1-2025",
