@@ -26,7 +26,7 @@
     "ssh_password": "{{user `ssh_password`}}",
 
     "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
-    "image_storage_locations": ["asia-south1"]
+    "image_storage_locations": ["us-central-1a"]
   }
 ],
  
