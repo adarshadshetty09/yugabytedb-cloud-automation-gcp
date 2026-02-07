@@ -8,7 +8,7 @@
   {
     "type": "googlecompute",
     "project_id": "project-af758472-c239-4625-869",
-    "zone": "us-central-1a",
+    "zone": "us-central1-a",
     "machine_type": "n2d-standard-4",
 
     "source_image_family": "rhel-9",
@@ -26,7 +26,7 @@
     "ssh_password": "{{user `ssh_password`}}",
 
     "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
-    "image_storage_locations": ["us-central-1a"]
+    "image_storage_locations": ["us-central1"]
   }
 ],
  
