@@ -2,7 +2,7 @@
    "builders": [
       {
         "type": "googlecompute",
-        "project_id": "winter-cocoa-437211-s2",
+        "project_id": "project-af758472-c239-4625-869",
         "source_image_family": "centos-stream-9",
         "source_image_project_id": "centos-cloud",
         "zone": "us-central1-a",
