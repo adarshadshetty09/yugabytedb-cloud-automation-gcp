@@ -1,0 +1,111 @@
+---
+- name: Install YBA Anywhere
+  hosts: all
+  become: true
+  gather_facts: false
+ 
+  vars:
+    license_content: "{{ lookup('file', './ybalic.yaml') }}"
+    installer_version: "2024.2.4.0-b89"
+    installer_name: "yba_installer_full-{{ installer_version }}-linux-x86_64"
+    installer_dir: "/home/ybaadmin/yba_installer_full-{{ installer_version }}"
+    installer_src: "/home/ybaadmin/{{ installer_name }}"
+    gcs_bucket: "gs://yugabyte123/{{ installer_name }}"
+    yba_dir: "/opt/yba-ctl"
+ 
+  tasks:
+    - name: Get Python Version
+      command: python3 --version
+      register: python
+ 
+    - name: Set the Crypto policy Future to Default
+      command: update-crypto-policies --set DEFAULT
+      register: updateCrypto
+ 
+    - name: Print the updateCrypto
+      debug:
+        var: updateCrypto.stdout_lines
+ 
+    - name: Verify the crypto setup
+      command: update-crypto-policies --show
+      register: crypto
+ 
+    - name: print the crypto
+      debug:
+        var: crypto.stdout_lines
+ 
+    - name: Show Python Version
+      debug:
+        var: python.stdout_lines
+ 
+    - name: Create ybaadmin user
+      user:
+        name: ybaadmin
+        shell: /bin/bash
+        groups: wheel
+        state: present
+        create_home: yes
+      register: user
+ 
+    - name: Setup passwordless sudo for ansible user
+      lineinfile:
+        path: /etc/sudoers.d/99_ansible_nopasswd
+        create: yes
+        line: "ybaadmin ALL=(ALL) NOPASSWD:ALL"
+        owner: root
+        group: root
+        mode: '0440'
+        validate: 'visudo -cf %s'
+      become: yes
+ 
+    - name: Print User
+      debug:
+        var: user
+ 
+    - name: Create a directory for /opt/yba-ctl
+      file:
+        path: /opt/yba-ctl
+        state: directory
+        mode: "0755"
+ 
+    - name: Copy the license content to /opt/yba-ctl/yba.lic
+      copy:
+        content: "{{ license_content }}"
+        dest: "{{ yba_dir }}/yba.lic"
+        owner: root
+        group: root
+        mode: '0644'
+ 
+    - name: Copy YBA Package from the GCS to Packer Instance
+      command: gsutil cp "{{ gcs_bucket }}" "{{ installer_src }}"
+      args:
+        creates: "{{ installer_src }}"
+ 
+    - name: Extract YBA Installer tar.gz
+      unarchive:
+        src: "{{ installer_src }}"
+        dest: /home/ybaadmin/
+        remote_src: yes
+      args:
+        creates: "{{ installer_dir }}"
+ 
+    - name: Remove the package file
+      ansible.builtin.file:
+        path: "{{ installer_dir }}-linux-x86_64.tar.gz"
+        state: absent
+ 
+    - name: Run the pre-flight check
+      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability preflight
+      register: output
+ 
+    - name: print output
+      debug:
+        var: output.stdout_lines
+ 
+    - name: Install the Yugabyte
+      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability install
+      register: install
+ 
+    - name: print output
+      debug:
+        var: install.stdout_lines
