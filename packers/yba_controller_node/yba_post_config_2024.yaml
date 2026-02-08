@@ -77,7 +77,7 @@
         mode: '0644'
  
     - name: Copy YBA Package from the GCS to Packer Instance
-      command: gsutil cp "{{ gcs_bucket }}" "{{ installer_src }}"
+      command: gsutil cp "{{ gcs_object }}" "{{ installer_src }}"
       args:
         creates: "{{ installer_src }}"
  
