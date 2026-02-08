@@ -95,7 +95,7 @@
         state: absent
  
     - name: Run the pre-flight check
-      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability preflight
+      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability preflight -f
       register: output
  
     - name: print output
@@ -103,7 +103,7 @@
         var: output.stdout_lines
  
     - name: Install the Yugabyte
-      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability install
+      command: sudo "{{ installer_dir }}/yba-ctl" --skip_preflight disk-availability install -f
       register: install
  
     - name: print output
