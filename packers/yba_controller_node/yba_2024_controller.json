@@ -7,8 +7,8 @@
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
 
-"source_image_family": "almalinux-9",
-"source_image_project_id": "almalinux-cloud",
+      "source_image_family": "centos-stream-9",
+      "source_image_project_id": "centos-cloud",
 
 
       "subnetwork": "yugabyte-sub-1",
