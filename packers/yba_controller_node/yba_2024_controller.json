@@ -3,56 +3,56 @@
     "user_name": "{{user `user_name`}}",
     "ssh_password": "{{user `ssh_password`}}"
   },
- 
-"builders": [
-  {
-    "type": "googlecompute",
-    "project_id": "project-af758472-c239-4625-869",
-    "zone": "us-central1-a",
-    "machine_type": "n2d-standard-4",
 
-    "source_image_family": "rhel-9",
-    "source_image_project_id": "rhel-cloud",
-
-    "subnetwork": "yugabyte-sub-1",
-    "tags" : ["allow-ssh","yugabyte"],
-
-    "omit_external_ip": false,
-    "use_internal_ip": false,
-
-    "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
-
-    "ssh_username": "{{user `user_name`}}",
-    "ssh_password": "{{user `ssh_password`}}",
-
-    "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
-    "image_storage_locations": ["us-central1"]
-  }
-],
- 
-  "provisioners": [
+  "builders": [
     {
-    "type": "shell",
-    "inline": [
-      "sudo dnf install -y openssh-server openssh-clients python3",
-      "sudo systemctl enable sshd",
-      "sudo systemctl restart sshd"
-    ]
-  },
-{
-  "type": "ansible",
-  "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
+      "type": "googlecompute",
+      "project_id": "project-af758472-c239-4625-869",
+      "zone": "us-central1-a",
+      "machine_type": "n2d-standard-4",
 
-  "extra_arguments": [
-    "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt",
-    "-e",
-    "ansible_ssh_transfer_method=scp"
+      "source_image_family": "rhel-9",
+      "source_image_project_id": "rhel-cloud",
+
+      "subnetwork": "yugabyte-sub-1",
+      "tags": ["allow-ssh", "yugabyte"],
+
+      "omit_external_ip": false,
+      "use_internal_ip": false,
+
+      "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
+
+      "ssh_username": "{{user `user_name`}}",
+      "ssh_password": "{{user `ssh_password`}}",
+
+      "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
+      "image_storage_locations": ["us-central1"]
+    }
   ],
 
-  "ansible_env_vars": [
-    "ANSIBLE_REMOTE_TMP=/tmp"
-  ]
-}
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "sudo dnf install -y openssh-server openssh-clients python3",
+        "sudo systemctl enable sshd",
+        "sudo systemctl restart sshd"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
 
+      "extra_arguments": [
+        "-vvv",
+        "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt",
+        "-e",
+        "ansible_ssh_transfer_method=scp"
+      ],
+
+      "ansible_env_vars": [
+        "ANSIBLE_REMOTE_TMP=/tmp"
+      ]
+    }
   ]
 }
