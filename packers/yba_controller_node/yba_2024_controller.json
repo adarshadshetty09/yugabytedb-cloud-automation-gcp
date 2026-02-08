@@ -18,7 +18,7 @@
 
       "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
 
-      "ssh_username": "packer",
+      "ssh_username": "cloud-user",
       "ssh_timeout": "15m",
 
       "metadata": {
@@ -31,18 +31,18 @@
   ],
 
   "provisioners": [
-{
-  "type": "shell",
-  "inline": [
-    "sudo dnf install -y openssh-server openssh-clients python3",
-    "sudo sed -i 's|^Subsystem sftp.*|Subsystem sftp internal-sftp|' /etc/ssh/sshd_config",
-    "sudo systemctl enable sshd",
-    "sudo systemctl restart sshd"
-  ]
-}
-,
+    {
+      "type": "shell",
+      "inline": [
+        "sudo dnf install -y openssh-server openssh-clients python3",
+        "sudo systemctl enable sshd",
+        "sudo systemctl restart sshd"
+      ]
+    },
     {
       "type": "ansible",
+      "user": "cloud-user",
+
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
 
       "extra_arguments": [
