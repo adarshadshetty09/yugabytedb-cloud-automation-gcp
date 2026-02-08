@@ -31,14 +31,16 @@
   ],
 
   "provisioners": [
-    {
-      "type": "shell",
-      "inline": [
-        "sudo dnf install -y openssh-server openssh-clients python3",
-        "sudo systemctl enable sshd",
-        "sudo systemctl restart sshd"
-      ]
-    },
+{
+  "type": "shell",
+  "inline": [
+    "sudo dnf install -y openssh-server openssh-clients python3",
+    "sudo sed -i 's|^Subsystem sftp.*|Subsystem sftp internal-sftp|' /etc/ssh/sshd_config",
+    "sudo systemctl enable sshd",
+    "sudo systemctl restart sshd"
+  ]
+}
+,
     {
       "type": "ansible",
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
