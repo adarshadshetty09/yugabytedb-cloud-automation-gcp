@@ -7,10 +7,10 @@
   vars:
     license_content: "{{ lookup('file', './ybalic.yaml') }}"
     installer_version: "2024.2.4.0-b89"
-    installer_name: "yba_installer_full-{{ installer_version }}-linux-x86_64"
+    installer_tar: "yba_installer_full-{{ installer_version }}-linux-x86_64.tar.gz"
     installer_dir: "/home/ybaadmin/yba_installer_full-{{ installer_version }}"
-    installer_src: "/home/ybaadmin/{{ installer_name }}"
-    gcs_bucket: "gs://yba-backup-bucket-001/{{ installer_name }}"
+    installer_src: "/home/ybaadmin/{{ installer_tar  }}"
+    gcs_object: "gs://yba-backup-bucket-001/{{ installer_tar  }}"
     yba_dir: "/opt/yba-ctl"
  
   tasks:
@@ -47,7 +47,7 @@
         create_home: yes
       register: user
  
-    - name: Setup passwordless sudo for ansible user
+    - name: Enable passwordless sudo for ybaadmin
       lineinfile:
         path: /etc/sudoers.d/99_ansible_nopasswd
         create: yes
