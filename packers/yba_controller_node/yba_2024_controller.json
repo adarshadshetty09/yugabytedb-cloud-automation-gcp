@@ -1,12 +1,8 @@
 {
-  "variables": {
-    "user_name": "{{user `user_name`}}",
-    "ssh_password": "{{user `ssh_password`}}"
-  },
-
   "builders": [
     {
       "type": "googlecompute",
+
       "project_id": "project-af758472-c239-4625-869",
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
@@ -22,8 +18,12 @@
 
       "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
 
-      "ssh_username": "{{user `user_name`}}",
-      "ssh_password": "{{user `ssh_password`}}",
+      "ssh_username": "packer",
+      "ssh_timeout": "15m",
+
+      "metadata": {
+        "enable-oslogin": "FALSE"
+      },
 
       "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
       "image_storage_locations": ["us-central1"]
@@ -45,9 +45,7 @@
 
       "extra_arguments": [
         "-vvv",
-        "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt",
-        "-e",
-        "ansible_ssh_transfer_method=scp"
+        "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt"
       ],
 
       "ansible_env_vars": [
