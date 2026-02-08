@@ -7,8 +7,9 @@
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
 
-      "source_image_family": "rhel-9",
-      "source_image_project_id": "rhel-cloud",
+"source_image_family": "almalinux-9",
+"source_image_project_id": "almalinux-cloud",
+
 
       "subnetwork": "yugabyte-sub-1",
       "tags": ["allow-ssh", "yugabyte"],
