@@ -10,7 +10,7 @@
     installer_name: "yba_installer_full-{{ installer_version }}-linux-x86_64"
     installer_dir: "/home/ybaadmin/yba_installer_full-{{ installer_version }}"
     installer_src: "/home/ybaadmin/{{ installer_name }}"
-    gcs_bucket: "gs://yugabyte123/{{ installer_name }}"
+    gcs_bucket: "gs://yba-backup-bucket-001/{{ installer_name }}"
     yba_dir: "/opt/yba-ctl"
  
   tasks:
