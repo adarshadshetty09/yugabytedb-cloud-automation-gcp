@@ -52,6 +52,16 @@
   # -------------------------------------------------------------------
   # LIMITS (ULIMITS)
   # -------------------------------------------------------------------
+
+
+  - name: Check for the ulimit 
+    ansible.builtin.command: ulimit -a 
+    register: ulimit
+
+  - name: Print the output for ulimit
+    ansible.builtin.debug:
+      var: ulimit.stdout_lines 
+        
   - name: Configure file descriptor and signal limits for yugabyte
     ansible.builtin.blockinfile:
       path: /etc/security/limits.conf
@@ -61,6 +71,14 @@
         {{ db_user }} soft sigpending 119934
         {{ db_user }} hard sigpending 119934
       state: present
+
+  - name: Check for the ulimit after set
+    ansible.builtin.command: ulimit -a 
+    register: ulimit_set
+
+  - name: Print the output for ulimit
+    ansible.builtin.debug:
+      var: ulimit_set.stdout_lines 
 
   - name: Configure nproc limit
     ansible.builtin.lineinfile:
