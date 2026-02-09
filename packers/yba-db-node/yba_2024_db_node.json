@@ -34,10 +34,9 @@
     {
       "type": "ansible",
       "user": "cloud-user",
-      "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_2024_db_node.yaml",
+      "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba-db-node/yba_2024_db_node.yaml",
       "extra_arguments": [
-        "-vvv",
-        "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt"
+        "-vvv"
       ],
       "ansible_env_vars": [
         "ANSIBLE_REMOTE_TMP=/tmp",
