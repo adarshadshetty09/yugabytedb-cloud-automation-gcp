@@ -2,115 +2,124 @@
 - name: Configure system for YugabyteDB on RHEL/CentOS
   hosts: default
   become: yes
+  gather_facts: yes
 
   vars:
-    user: ybaadmin
+    admin_user: ybaadmin
+    db_user: yugabyte
+
+    db_uid: 995
+    db_gid: 994
+
     yugabyte_sudoers_file: /etc/sudoers.d/ybaadmin
-    core_dump_dir: "/home/{{ user }}/core"
+    core_dump_dir: /home/yugabyte/cores
 
   tasks:
-    - name: Create yugabyte user
-      ansible.builtin.user:
-        name: "{{ user }}"
-        shell: /bin/bash
-        create_home: yes
+  # -------------------------------------------------------------------
+  # USERS & GROUPS
+  # -------------------------------------------------------------------
+  - name: Ensure yugabyte group exists with fixed GID
+    ansible.builtin.group:
+      name: "{{ db_user }}"
+      gid: "{{ db_gid }}"
+      state: present
 
-    - name: Grant full sudo privileges to yugabyte user
-      ansible.builtin.copy:
-        dest: "{{ yugabyte_sudoers_file }}"
-        content: "{{ user }} ALL=(ALL) NOPASSWD: ALL"
-        mode: '0440'
-        validate: 'visudo -cf %s'
+  - name: Ensure yugabyte user exists with fixed UID
+    ansible.builtin.user:
+      name: "{{ db_user }}"
+      uid: "{{ db_uid }}"
+      group: "{{ db_user }}"
+      shell: /sbin/nologin
+      create_home: yes
+      state: present
 
-    - name: Check for ulimit 
-      ansible.builtin.command: ulimit -a
-      register: ulimit
-    
-    - name: Print the output for ulimit
-      ansible.builtin.debug: 
-        var: ulimit.stdout_lines
+  - name: Ensure ybaadmin admin user exists
+    ansible.builtin.user:
+      name: "{{ admin_user }}"
+      shell: /bin/bash
+      create_home: yes
+      state: present
 
-    - name: Set system ulimits for YugabyteDB in limits.conf
-      ansible.builtin.lineinfile:
-        path: "/etc/security/limits.conf"
-        line: "{{ item }}"
-        create: yes
-        state: present
-      loop:
-        - "{{ user }} soft nofile 1048576"
-        - "{{ user }} hard nofile 1048576"
-        - "{{ user }} soft sigpending 119934"
-        - "{{ user }} hard sigpending 119934"
+  - name: Grant passwordless sudo to ybaadmin
+    ansible.builtin.copy:
+      dest: "{{ yugabyte_sudoers_file }}"
+      content: "{{ admin_user }} ALL=(ALL) NOPASSWD: ALL"
+      owner: root
+      group: root
+      mode: '0440'
+      validate: 'visudo -cf %s'
 
-    - name: Check for ulimit after set
-      ansible.builtin.command: ulimit -a
-      register: ulimit_set
-    
-    - name: Print the output for ulimit after set
-      ansible.builtin.debug: 
-        var: ulimit_set.stdout_lines
+  # -------------------------------------------------------------------
+  # LIMITS (ULIMITS)
+  # -------------------------------------------------------------------
+  - name: Configure file descriptor and signal limits for yugabyte
+    ansible.builtin.blockinfile:
+      path: /etc/security/limits.conf
+      block: |
+        {{ db_user }} soft nofile 1048576
+        {{ db_user }} hard nofile 1048576
+        {{ db_user }} soft sigpending 119934
+        {{ db_user }} hard sigpending 119934
+      state: present
 
+  - name: Configure nproc limit
+    ansible.builtin.lineinfile:
+      path: /etc/security/limits.d/20-nproc.conf
+      regexp: '^(\*|{{ db_user }})\s+soft\s+nproc'
+      line: "* soft nproc 12000"
+      state: present
+      create: yes
 
-    - name: Configure nproc limit in /etc/security/limits.d/20-nproc.conf
-      ansible.builtin.lineinfile:
-        path: "/etc/security/limits.d/20-nproc.conf"
-        regexp: '^(\*|\s*{{ user }})\s+soft\s+nproc'
-        line: "* soft nproc 12000"
-        create: yes
-        state: present
+  # -------------------------------------------------------------------
+  # CORE DUMPS
+  # -------------------------------------------------------------------
+  - name: Ensure core dump directory exists
+    ansible.builtin.file:
+      path: "{{ core_dump_dir }}"
+      state: directory
+      owner: "{{ db_user }}"
+      group: "{{ db_user }}"
+      mode: '0755'
 
-    - name: Ensure core dump directory exists
-      ansible.builtin.file:
-        path: "{{ core_dump_dir }}"
-        state: directory
-        owner: "{{ user }}"
-        group: "{{ user }}"
-        mode: '0755'
+  - name: Configure core dump file pattern
+    ansible.builtin.sysctl:
+      name: kernel.core_pattern
+      value: "{{ core_dump_dir }}/core_%p_%t_%E"
+      state: present
+      reload: yes
 
-    - name: Configure kernel parameters via sysctl
-      ansible.builtin.command: sudo bash -c 'sysctl vm.swappiness=0 >> /etc/sysctl.conf'
-      register: kernel_parameter
+  # -------------------------------------------------------------------
+  # KERNEL TUNING (SYSCTL)
+  # -------------------------------------------------------------------
+  - name: Set vm.swappiness
+    ansible.builtin.sysctl:
+      name: vm.swappiness
+      value: "0"
+      state: present
+      reload: yes
 
-    - name: Print the vm.swappiness
-      ansible.builtin.debug: 
-        var: kernel_parameter.stdout_lines
-    
-    - name: Setup path for core file 
-      ansible.builtin.command: sudo sysctl kernel.core_pattern=/home/yugabyte/cores/core_%p_%t_%E
-      register: setPath
+  - name: Set vm.max_map_count
+    ansible.builtin.sysctl:
+      name: vm.max_map_count
+      value: "262144"
+      state: present
+      reload: yes
 
-    - name: Print the for file 
-      ansible.builtin.debug: 
-        var: setPath.stdout_lines
-    
-    - name: vm.max_map_count
-      ansible.builtin.command: sudo sysctl -w vm.max_map_count=262144 && bash -c 'sysctl vm.max_map_count=262144 >> /etc/sysctl.conf'
-      register: vm_max_map_count
+  # -------------------------------------------------------------------
+  # TRANSPARENT HUGEPAGES (VERIFY ONLY)
+  # -------------------------------------------------------------------
+  - name: Check Transparent HugePages status
+    ansible.builtin.command: cat /sys/kernel/mm/transparent_hugepage/enabled
+    register: thp
+    changed_when: false
 
-    - name: Print the vm.max_map_count
-      ansible.builtin.debug: 
-        var: vm_max_map_count
-        
-    - name: Validate The Change
-      ansible.builtin.command: sysctl vm.max_map_count
-      register: max_count
+  - name: Print Transparent HugePages status
+    ansible.builtin.debug:
+      var: thp.stdout_lines
 
-    - name: Print the max_count
-      ansible.builtin.debug: 
-        var: max_count.stdout_lines
-
-    - name: Enable transparent hugepages
-      ansible.builtin.command: cat /sys/kernel/mm/transparent_hugepage/enabled
-      register: thp
-
-    - name: Print the thp
-      ansible.builtin.debug: 
-        var: thp.stdout_lines
-    
-
-
-    
-      
-
-      
-
+  # -------------------------------------------------------------------
+  # VALIDATION
+  # -------------------------------------------------------------------
+  - name: Validate yugabyte user
+    ansible.builtin.command: id yugabyte
+    changed_when: false
