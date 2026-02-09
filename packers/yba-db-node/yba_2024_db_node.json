@@ -5,8 +5,7 @@
       "project_id": "project-af758472-c239-4625-869",
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
-      "source_image_family": "centos-stream-9",
-      "source_image_project_id": "centos-cloud",
+      "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
       "subnetwork": "yugabyte-sub-1",
       "tags": ["allow-ssh", "yugabyte"],
       "omit_external_ip": false,
@@ -23,25 +22,11 @@
   ],
   "provisioners": [
     {
-      "type": "shell",
-      "inline": [
-        "sudo dnf install -y openssh-server openssh-clients python3",
-        "sudo systemctl enable sshd",
-        "sudo systemctl restart sshd",
-        "sudo ln -sf /usr/libexec/openssh/sftp-server /usr/lib/sftp-server"
-      ]
-    },
-    {
       "type": "ansible",
       "user": "cloud-user",
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba-db-node/yba_2024_db_node.yaml",
       "extra_arguments": [
         "-vvv"
-      ],
-      "ansible_env_vars": [
-        "ANSIBLE_REMOTE_TMP=/tmp",
-        "ANSIBLE_SSH_ARGS='-o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey'",
-        "ANSIBLE_PIPELINING=True"
       ],
       "use_proxy": false
     }
