@@ -9,7 +9,7 @@
     mount_point: "/mnt/yba"
     filesystem_type: "ext4"
 
-    yba_dir: "/home/ybaadmin/yba_installer_full-2024.2.5.1-b1"
+    yba_dir: "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89"
     yba_opt_dir: "/opt/yba-ctl"
     license_src: "/opt/yba-ctl/yba.lic"
     skip_preflight: "disk-availability,memory,cpu"
