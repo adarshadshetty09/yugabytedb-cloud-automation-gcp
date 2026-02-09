@@ -1,0 +1,125 @@
+# --- 1. YBA Registration ---
+./yba register \
+  -f \
+  -n admin \
+  -e admin@gmail.com \
+  -p 'Admin123$$$' \
+  --environment dev \
+  -H https://34.174.36.233:443
+
+
+# --- 2. On-Prem Provider Setup ---
+./yba provider onprem create \
+  --name gcp-provider \
+  --region region-name=south-asia \
+  --zone zone-name=mum1::region-name=south-asia \
+  --zone zone-name=del1::region-name=south-asia \
+  --ssh-user ybaadmin \
+  --ssh-keypair-name ybaadmin \
+  --ssh-keypair-file-path /home/ybaadmin/.ssh/id_rsa
+
+
+# --- 3. Define Instance Type (Instance type name corrected to 'db-node-type') ---
+./yba provider onprem instance-type add \
+  --name gcp-provider \
+  --instance-type-name db-node-type \
+  --num-cores 2 \
+  --mem-size 10 \
+  --volume mount-points=/mnt/yba-data::size=10::type=SSD
+
+
+# --- 4. Add Node for Primary Universe (in zone mum1) ---
+# NOTE: Instance type corrected to 'db-node-type'
+./yba provider onprem node add \
+  --name gcp-provider \
+  --ip 11.0.0.11 \
+  --instance-type db-node-type \
+  --region south-asia \
+  --zone mum1 \
+  --node-name db-pr-node-1
+
+
+# --- 5. Add Node for xCluster Universe (in zone del1) ---
+# NOTE: Instance type corrected to 'db-node-type'
+./yba provider onprem node add \
+  --name gcp-provider \
+  --ip 11.0.0.12 \
+  --instance-type db-node-type \
+  --region south-asia \
+  --zone del1 \
+  --node-name db-xcluster-node-1
+
+
+# --- 6. Create Primary Universe: universe-pr ---
+# IMPORTANT: Uses --custom-node-names to assign the db-pr-node-1
+./yba universe create \
+  --name universe-pr \
+  --yb-db-version 2024.2.5.1-b1 \
+  --provider-code onprem \
+  --provider-name gcp-provider \
+  --replication-factor 1 \
+  --num-nodes 1 \
+  --regions south-asia \
+  --instance-type db-node-type \
+  --custom-node-names db-pr-node-1 \
+  --assign-public-ip=false \
+  --enable-ysql=true \
+  --enable-ycql=false \
+  --enable-node-to-node-encrypt=false \
+  --enable-client-to-node-encrypt=false \
+  --master-gflags '{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}' \
+  --tserver-gflags '{"primary":{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}}' \
+  -H https://34.174.126.11:443
+
+
+# --- 7. Create xCluster Universe: universe-xcluster ---
+# IMPORTANT: Uses --custom-node-names to assign the db-xcluster-node-1
+./yba universe create \
+  --name universe-xcluster \
+  --yb-db-version 2024.2.5.1-b1 \
+  --provider-code onprem \
+  --provider-name gcp-provider \
+  --replication-factor 1 \
+  --num-nodes 1 \
+  --regions south-asia \
+  --instance-type db-node-type \
+  --custom-node-names db-xcluster-node-1 \
+  --assign-public-ip=false \
+  --enable-ysql=true \
+  --enable-ycql=false \
+  --enable-node-to-node-encrypt=false \
+  --enable-client-to-node-encrypt=false \
+  --master-gflags '{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}' \
+  --tserver-gflags '{"primary":{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}}' \
+  -H https://34.174.126.11:443
+
+
+
+
+
+yba storage-config gcs create \
+  --name gcs-backup-iam \
+  --backup-location gs://ybabackupbuckettest \
+  --use-gcp-iam \
+  -H https://34.174.126.11:443
+
+
+
+yba backup create \
+  --universe-name universe-pr \
+  --storage-config-name gcs-backup-iam \
+  --table-type ysql \
+  --time-before-delete-in-ms 86400000 \
+  -H https://34.174.36.233:443
+
+# List tables in a universe that are eligible for xCluster
+yba universe table list  --name universe-pr
+
+
+yba xcluster create --name just-a-test \
+  --source-universe-name universe-pr \
+  --target-universe-name universe-xcluster \
+  --config-type basic \
+  --table-uuids 00004000-0000-3000-8000-000000004002 \
+  --storage-config-name gcs-backup-iam \
+  --insecure
