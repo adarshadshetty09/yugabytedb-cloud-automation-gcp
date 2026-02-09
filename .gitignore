@@ -80,3 +80,9 @@ scripts/*.result
 ############################
 .env
 .env.*
+
+
+#######################
+# pem files
+id_rsa.pem
+*.pem
