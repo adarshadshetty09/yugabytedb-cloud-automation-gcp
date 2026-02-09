@@ -63,3 +63,16 @@ $ gcloud compute instances create INSTANCE-NAME \
   --scopes="https://www.googleapis.com/auth/cloud-platform"
 
 ```
+
+
+```
+      "source_image_family": "centos-stream-9",
+      "source_image_project_id": "centos-cloud",
+```
+
+#### Replace This One
+
+```
+      "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
+
+```

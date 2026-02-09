@@ -5,8 +5,7 @@
       "project_id": "project-af758472-c239-4625-869",
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
-      "source_image_family": "centos-stream-9",
-      "source_image_project_id": "centos-cloud",
+      "source_image": "projects/rhel-cloud/global/images/rhel-9-v20260114",
       "subnetwork": "yugabyte-sub-1",
       "tags": ["allow-ssh", "yugabyte"],
       "omit_external_ip": false,
@@ -17,7 +16,7 @@
       "metadata": {
         "enable-oslogin": "FALSE"
       },
-      "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
+      "image_name": "yugabyte-packer-controller-2024-{{timestamp}}",
       "image_storage_locations": ["us-central1"]
     }
   ],
