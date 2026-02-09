@@ -1,0 +1,1104 @@
+[1;32mgooglecompute: output will be in this color.[0m
+
+[1;32m==> googlecompute: Checking image does not exist...[0m
+[1;32m==> googlecompute: Creating temporary RSA SSH key for instance...[0m
+[1;32m==> googlecompute: no persistent disk to create[0m
+[1;32m==> googlecompute: Using image: centos-stream-9-v20260114[0m
+[1;32m==> googlecompute: Creating instance...[0m
+[1;32m==> googlecompute: Loading zone: us-central1-a[0m
+[1;32m==> googlecompute: Loading machine type: n2d-standard-4[0m
+[1;32m==> googlecompute: Requesting instance creation...[0m
+[1;32m==> googlecompute: Waiting for creation operation to complete...[0m
+[1;32m==> googlecompute: Instance has been created![0m
+[1;32m==> googlecompute: Waiting for the instance to become running...[0m
+[1;32m==> googlecompute: IP: 136.116.40.169[0m
+[1;32m==> googlecompute: Using SSH communicator to connect: 136.116.40.169[0m
+[1;32m==> googlecompute: Waiting for SSH to become available...[0m
+[1;32m==> googlecompute: Connected to SSH![0m
+[1;32m==> googlecompute: Provisioning with shell script: /tmp/packer-shell2182723277[0m
+[1;32m==> googlecompute: CentOS Stream 9 - BaseOS                        1.8 MB/s | 8.9 MB     00:04[0m
+[1;32m==> googlecompute: CentOS Stream 9 - AppStream                     1.8 MB/s |  27 MB     00:14[0m
+[1;32m==> googlecompute: CentOS Stream 9 - Extras packages                60 kB/s |  20 kB     00:00[0m
+[1;32m==> googlecompute: Google Compute Engine                            43 kB/s | 8.2 kB     00:00[0m
+[1;32m==> googlecompute: Google Cloud SDK                                 47 MB/s | 156 MB     00:03[0m
+[1;32m==> googlecompute: Package openssh-server-9.9p1-3.el9.x86_64 is already installed.[0m
+[1;32m==> googlecompute: Package openssh-clients-9.9p1-3.el9.x86_64 is already installed.[0m
+[1;32m==> googlecompute: Package python3-3.9.25-2.el9.x86_64 is already installed.[0m
+[1;32m==> googlecompute: Dependencies resolved.[0m
+[1;32m==> googlecompute: ================================================================================[0m
+[1;32m==> googlecompute:  Package                        Arch       Version          Repository     Size[0m
+[1;32m==> googlecompute: ================================================================================[0m
+[1;32m==> googlecompute: Upgrading:[0m
+[1;32m==> googlecompute:  python-unversioned-command     noarch     3.9.25-3.el9     appstream     9.1 k[0m
+[1;32m==> googlecompute:  python3                        x86_64     3.9.25-3.el9     baseos         26 k[0m
+[1;32m==> googlecompute:  python3-libs                   x86_64     3.9.25-3.el9     baseos        8.1 M[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: Transaction Summary[0m
+[1;32m==> googlecompute: ================================================================================[0m
+[1;32m==> googlecompute: Upgrade  3 Packages[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: Total download size: 8.1 M[0m
+[1;32m==> googlecompute: Downloading Packages:[0m
+[1;32m==> googlecompute: (1/3): python-unversioned-command-3.9.25-3.el9. 152 kB/s | 9.1 kB     00:00[0m
+[1;32m==> googlecompute: (2/3): python3-3.9.25-3.el9.x86_64.rpm           65 kB/s |  26 kB     00:00[0m
+[1;32m==> googlecompute: (3/3): python3-libs-3.9.25-3.el9.x86_64.rpm     1.3 MB/s | 8.1 MB     00:06[0m
+[1;32m==> googlecompute: --------------------------------------------------------------------------------[0m
+[1;32m==> googlecompute: Total                                           1.2 MB/s | 8.1 MB     00:06[0m
+[1;32m==> googlecompute: Running transaction check[0m
+[1;32m==> googlecompute: Transaction check succeeded.[0m
+[1;32m==> googlecompute: Running transaction test[0m
+[1;32m==> googlecompute: Transaction test succeeded.[0m
+[1;32m==> googlecompute: Running transaction[0m
+[1;32m==> googlecompute:   Preparing        :                                                        1/1[0m
+[1;32m==> googlecompute:   Upgrading        : python3-libs-3.9.25-3.el9.x86_64                       1/6[0m
+[1;32m==> googlecompute:   Upgrading        : python-unversioned-command-3.9.25-3.el9.noarch         2/6[0m
+[1;32m==> googlecompute:   Upgrading        : python3-3.9.25-3.el9.x86_64                            3/6[0m
+[1;32m==> googlecompute:   Cleanup          : python3-3.9.25-2.el9.x86_64                            4/6[0m
+[1;32m==> googlecompute:   Cleanup          : python-unversioned-command-3.9.25-2.el9.noarch         5/6[0m
+[1;32m==> googlecompute:   Cleanup          : python3-libs-3.9.25-2.el9.x86_64                       6/6[0m
+[1;32m==> googlecompute:   Running scriptlet: python3-libs-3.9.25-2.el9.x86_64                       6/6[0m
+[1;32m==> googlecompute:   Verifying        : python3-3.9.25-3.el9.x86_64                            1/6[0m
+[1;32m==> googlecompute:   Verifying        : python3-3.9.25-2.el9.x86_64                            2/6[0m
+[1;32m==> googlecompute:   Verifying        : python3-libs-3.9.25-3.el9.x86_64                       3/6[0m
+[1;32m==> googlecompute:   Verifying        : python3-libs-3.9.25-2.el9.x86_64                       4/6[0m
+[1;32m==> googlecompute:   Verifying        : python-unversioned-command-3.9.25-3.el9.noarch         5/6[0m
+[1;32m==> googlecompute:   Verifying        : python-unversioned-command-3.9.25-2.el9.noarch         6/6[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: Upgraded:[0m
+[1;32m==> googlecompute:   python-unversioned-command-3.9.25-3.el9.noarch   python3-3.9.25-3.el9.x86_64[0m
+[1;32m==> googlecompute:   python3-libs-3.9.25-3.el9.x86_64[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: Complete![0m
+[1;32m==> googlecompute: Provisioning with Ansible...[0m
+[1;32m==> googlecompute: Not using Proxy adapter for Ansible run:
+==> googlecompute: 	Using ssh keys from Packer communicator...[0m
+[1;32m==> googlecompute: Executing Ansible: ansible-playbook -e packer_build_name="googlecompute" -e packer_builder_type=googlecompute --ssh-extra-args '-o IdentitiesOnly=yes' -vvv --vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt -e ansible_ssh_private_key_file=/tmp/ansible-key3006360827 -i /tmp/packer-provisioner-ansible3592638305 /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml[0m
+[1;32m==> googlecompute: ansible-playbook [core 2.14.18][0m
+[1;32m==> googlecompute:   config file = /etc/ansible/ansible.cfg[0m
+[1;32m==> googlecompute:   configured module search path = ['/home/adev4769/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules'][0m
+[1;32m==> googlecompute:   ansible python module location = /usr/lib/python3.9/site-packages/ansible[0m
+[1;32m==> googlecompute:   ansible collection location = /home/adev4769/.ansible/collections:/usr/share/ansible/collections[0m
+[1;32m==> googlecompute:   executable location = /usr/bin/ansible-playbook[0m
+[1;32m==> googlecompute:   python version = 3.9.25 (main, Jan 14 2026, 00:00:00) [GCC 11.5.0 20240719 (Red Hat 11.5.0-11)] (/usr/bin/python3)[0m
+[1;32m==> googlecompute:   jinja version = 3.1.2[0m
+[1;32m==> googlecompute:   libyaml = True[0m
+[1;32m==> googlecompute: Using /etc/ansible/ansible.cfg as config file[0m
+[1;32m==> googlecompute: host_list declined parsing /tmp/packer-provisioner-ansible3592638305 as it did not pass its verify_file() method[0m
+[1;32m==> googlecompute: script declined parsing /tmp/packer-provisioner-ansible3592638305 as it did not pass its verify_file() method[0m
+[1;32m==> googlecompute: auto declined parsing /tmp/packer-provisioner-ansible3592638305 as it did not pass its verify_file() method[0m
+[1;32m==> googlecompute: Parsed /tmp/packer-provisioner-ansible3592638305 inventory source with ini plugin[0m
+[1;32m==> googlecompute: Skipping callback 'default', as we already have a stdout callback.[0m
+[1;32m==> googlecompute: Skipping callback 'minimal', as we already have a stdout callback.[0m
+[1;32m==> googlecompute: Skipping callback 'oneline', as we already have a stdout callback.[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: PLAYBOOK: yba_post_config_2024.yaml ********************************************[0m
+[1;32m==> googlecompute: 1 plays in /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: PLAY [Install YBA Anywhere] ****************************************************[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Get Python Version] ******************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:17[0m
+[1;32m==> googlecompute: <default> Attempting python interpreter discovery[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'python3.11'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.10'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python3.9\n/usr/bin/python3\n/usr/libexec/platform-python\n/usr/bin/python\n/usr/bin/python\nENDFOUND\n', b'@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\n@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @\r\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\r\nIT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!\r\nSomeone could be eavesdropping on you right now (man-in-the-middle attack)!\r\nIt is also possible that a host key has just been changed.\r\nThe fingerprint for the ED25519 key sent by the remote host is\nSHA256:6Cr12Ml17icTRQKy4neetRHf9k/55SMNtV8HgjJblqo.\r\nPlease contact your system administrator.\r\nAdd correct host key in /home/adev4769/.ssh/known_hosts to get rid of this message.\r\nOffending ED25519 key in /home/adev4769/.ssh/known_hosts:1\r\nUpdateHostkeys is disabled because the host key is not trusted.\r\n')[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'/usr/bin/python3.9 && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'{"platform_dist_result": [], "osrelease_content": "NAME=\\"CentOS Stream\\"\\nVERSION=\\"9\\"\\nID=\\"centos\\"\\nID_LIKE=\\"rhel fedora\\"\\nVERSION_ID=\\"9\\"\\nPLATFORM_ID=\\"platform:el9\\"\\nPRETTY_NAME=\\"CentOS Stream 9\\"\\nANSI_COLOR=\\"0;31\\"\\nLOGO=\\"fedora-logo-icon\\"\\nCPE_NAME=\\"cpe:/o:centos:centos:9\\"\\nHOME_URL=\\"https://centos.org/\\"\\nBUG_REPORT_URL=\\"https://issues.redhat.com/\\"\\nREDHAT_SUPPORT_PRODUCT=\\"Red Hat Enterprise Linux 9\\"\\nREDHAT_SUPPORT_PRODUCT_VERSION=\\"CentOS Stream\\"\\n"}\n', b'')[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-exzuyqvirzvbmndfplltczniscqjujdr ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "Python 3.9.25", "stderr": "", "rc": 0, "cmd": ["python3", "--version"], "start": "2026-02-09 06:32:07.764382", "end": "2026-02-09 06:32:07.769566", "delta": "0:00:00.005184", "msg": "", "invocation": {"module_args": {"_raw_params": "python3 --version", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "ansible_facts": {[0m
+[1;32m==> googlecompute:         "discovered_interpreter_python": "/usr/bin/python3"[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "python3",[0m
+[1;32m==> googlecompute:         "--version"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:00:00.005184",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:32:07.769566",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "python3 --version",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": null,[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:32:07.764382",[0m
+[1;32m==> googlecompute:     "stderr": "",[0m
+[1;32m==> googlecompute:     "stderr_lines": [],[0m
+[1;32m==> googlecompute:     "stdout": "Python 3.9.25",[0m
+[1;32m==> googlecompute:     "stdout_lines": [[0m
+[1;32m==> googlecompute:         "Python 3.9.25"[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Set the Crypto policy Future to Default] *********************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:21[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-xcgrhthgvxpdvabywpimervqjfsfkftw ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "Setting system policy to DEFAULT\\nNote: System-wide crypto policies are applied on application start-up.\\nIt is recommended to restart the system for the change of policies\\nto fully take place.", "stderr": "", "rc": 0, "cmd": ["update-crypto-policies", "--set", "DEFAULT"], "start": "2026-02-09 06:32:08.037486", "end": "2026-02-09 06:32:08.252038", "delta": "0:00:00.214552", "msg": "", "invocation": {"module_args": {"_raw_params": "update-crypto-policies --set DEFAULT", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "update-crypto-policies",[0m
+[1;32m==> googlecompute:         "--set",[0m
+[1;32m==> googlecompute:         "DEFAULT"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:00:00.214552",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:32:08.252038",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "update-crypto-policies --set DEFAULT",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": null,[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:32:08.037486",[0m
+[1;32m==> googlecompute:     "stderr": "",[0m
+[1;32m==> googlecompute:     "stderr_lines": [],[0m
+[1;32m==> googlecompute:     "stdout": "Setting system policy to DEFAULT\nNote: System-wide crypto policies are applied on application start-up.\nIt is recommended to restart the system for the change of policies\nto fully take place.",[0m
+[1;32m==> googlecompute:     "stdout_lines": [[0m
+[1;32m==> googlecompute:         "Setting system policy to DEFAULT",[0m
+[1;32m==> googlecompute:         "Note: System-wide crypto policies are applied on application start-up.",[0m
+[1;32m==> googlecompute:         "It is recommended to restart the system for the change of policies",[0m
+[1;32m==> googlecompute:         "to fully take place."[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Print the updateCrypto] **************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:25[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "updateCrypto.stdout_lines": [[0m
+[1;32m==> googlecompute:         "Setting system policy to DEFAULT",[0m
+[1;32m==> googlecompute:         "Note: System-wide crypto policies are applied on application start-up.",[0m
+[1;32m==> googlecompute:         "It is recommended to restart the system for the change of policies",[0m
+[1;32m==> googlecompute:         "to fully take place."[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Verify the crypto setup] *************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:29[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-yhqalqcrlifctsghjxrgcbvdlpxpjydv ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "DEFAULT", "stderr": "", "rc": 0, "cmd": ["update-crypto-policies", "--show"], "start": "2026-02-09 06:32:08.536364", "end": "2026-02-09 06:32:08.592509", "delta": "0:00:00.056145", "msg": "", "invocation": {"module_args": {"_raw_params": "update-crypto-policies --show", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "update-crypto-policies",[0m
+[1;32m==> googlecompute:         "--show"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:00:00.056145",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:32:08.592509",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "update-crypto-policies --show",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": null,[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:32:08.536364",[0m
+[1;32m==> googlecompute:     "stderr": "",[0m
+[1;32m==> googlecompute:     "stderr_lines": [],[0m
+[1;32m==> googlecompute:     "stdout": "DEFAULT",[0m
+[1;32m==> googlecompute:     "stdout_lines": [[0m
+[1;32m==> googlecompute:         "DEFAULT"[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [print the crypto] ********************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:33[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "crypto.stdout_lines": [[0m
+[1;32m==> googlecompute:         "DEFAULT"[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Show Python Version] *****************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:37[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "python.stdout_lines": [[0m
+[1;32m==> googlecompute:         "Python 3.9.25"[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Create ybaadmin user] ****************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:41[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/user.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-iqflndppsedbqyyhuelewilggxwzwlbk ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"name": "ybaadmin", "state": "present", "system": false, "create_home": true, "changed": true, "uid": 1001, "group": 1006, "comment": "", "home": "/home/ybaadmin", "shell": "/bin/bash", "groups": "wheel", "invocation": {"module_args": {"name": "ybaadmin", "shell": "/bin/bash", "groups": ["wheel"], "state": "present", "create_home": true, "non_unique": false, "force": false, "remove": false, "system": false, "move_home": false, "append": false, "ssh_key_bits": 0, "ssh_key_type": "rsa", "ssh_key_comment": "ansible-generated on packer-69897ee9-c4b8-85dc-a584-2af84e663efa", "update_password": "always", "uid": null, "group": null, "comment": null, "home": null, "password": null, "login_class": null, "password_expire_max": null, "password_expire_min": null, "hidden": null, "seuser": null, "skeleton": null, "generate_ssh_key": null, "ssh_key_file": null, "ssh_key_passphrase": null, "expires": null, "password_lock": null, "local": null, "profile": null, "authorization": null, "role": null, "umask": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "comment": "",[0m
+[1;32m==> googlecompute:     "create_home": true,[0m
+[1;32m==> googlecompute:     "group": 1006,[0m
+[1;32m==> googlecompute:     "groups": "wheel",[0m
+[1;32m==> googlecompute:     "home": "/home/ybaadmin",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "append": false,[0m
+[1;32m==> googlecompute:             "authorization": null,[0m
+[1;32m==> googlecompute:             "comment": null,[0m
+[1;32m==> googlecompute:             "create_home": true,[0m
+[1;32m==> googlecompute:             "expires": null,[0m
+[1;32m==> googlecompute:             "force": false,[0m
+[1;32m==> googlecompute:             "generate_ssh_key": null,[0m
+[1;32m==> googlecompute:             "group": null,[0m
+[1;32m==> googlecompute:             "groups": [[0m
+[1;32m==> googlecompute:                 "wheel"[0m
+[1;32m==> googlecompute:             ],[0m
+[1;32m==> googlecompute:             "hidden": null,[0m
+[1;32m==> googlecompute:             "home": null,[0m
+[1;32m==> googlecompute:             "local": null,[0m
+[1;32m==> googlecompute:             "login_class": null,[0m
+[1;32m==> googlecompute:             "move_home": false,[0m
+[1;32m==> googlecompute:             "name": "ybaadmin",[0m
+[1;32m==> googlecompute:             "non_unique": false,[0m
+[1;32m==> googlecompute:             "password": null,[0m
+[1;32m==> googlecompute:             "password_expire_max": null,[0m
+[1;32m==> googlecompute:             "password_expire_min": null,[0m
+[1;32m==> googlecompute:             "password_lock": null,[0m
+[1;32m==> googlecompute:             "profile": null,[0m
+[1;32m==> googlecompute:             "remove": false,[0m
+[1;32m==> googlecompute:             "role": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "shell": "/bin/bash",[0m
+[1;32m==> googlecompute:             "skeleton": null,[0m
+[1;32m==> googlecompute:             "ssh_key_bits": 0,[0m
+[1;32m==> googlecompute:             "ssh_key_comment": "ansible-generated on packer-69897ee9-c4b8-85dc-a584-2af84e663efa",[0m
+[1;32m==> googlecompute:             "ssh_key_file": null,[0m
+[1;32m==> googlecompute:             "ssh_key_passphrase": null,[0m
+[1;32m==> googlecompute:             "ssh_key_type": "rsa",[0m
+[1;32m==> googlecompute:             "state": "present",[0m
+[1;32m==> googlecompute:             "system": false,[0m
+[1;32m==> googlecompute:             "uid": null,[0m
+[1;32m==> googlecompute:             "umask": null,[0m
+[1;32m==> googlecompute:             "update_password": "always"[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "name": "ybaadmin",[0m
+[1;32m==> googlecompute:     "shell": "/bin/bash",[0m
+[1;32m==> googlecompute:     "state": "present",[0m
+[1;32m==> googlecompute:     "system": false,[0m
+[1;32m==> googlecompute:     "uid": 1001[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Enable passwordless sudo for ybaadmin] ***********************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:50[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/lineinfile.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-mrtvqtkrchejhfjwpnwkfccajyxujbid ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "msg": "line added and ownership, perms or SE linux context changed", "backup": "", "diff": [{"before": "", "after": "", "before_header": "/etc/sudoers.d/99_ansible_nopasswd (content)", "after_header": "/etc/sudoers.d/99_ansible_nopasswd (content)"}, {"before": {"mode": "0644"}, "after": {"mode": "0440"}, "before_header": "/etc/sudoers.d/99_ansible_nopasswd (file attributes)", "after_header": "/etc/sudoers.d/99_ansible_nopasswd (file attributes)"}], "invocation": {"module_args": {"path": "/etc/sudoers.d/99_ansible_nopasswd", "create": true, "line": "ybaadmin ALL=(ALL) NOPASSWD:ALL", "owner": "root", "group": "root", "mode": "0440", "validate": "visudo -cf %s", "state": "present", "backrefs": false, "backup": false, "firstmatch": false, "unsafe_writes": false, "regexp": null, "search_string": null, "insertafter": null, "insertbefore": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "backup": "",[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "diff": [[0m
+[1;32m==> googlecompute:         {[0m
+[1;32m==> googlecompute:             "after": "",[0m
+[1;32m==> googlecompute:             "after_header": "/etc/sudoers.d/99_ansible_nopasswd (content)",[0m
+[1;32m==> googlecompute:             "before": "",[0m
+[1;32m==> googlecompute:             "before_header": "/etc/sudoers.d/99_ansible_nopasswd (content)"[0m
+[1;32m==> googlecompute:         },[0m
+[1;32m==> googlecompute:         {[0m
+[1;32m==> googlecompute:             "after": {[0m
+[1;32m==> googlecompute:                 "mode": "0440"[0m
+[1;32m==> googlecompute:             },[0m
+[1;32m==> googlecompute:             "after_header": "/etc/sudoers.d/99_ansible_nopasswd (file attributes)",[0m
+[1;32m==> googlecompute:             "before": {[0m
+[1;32m==> googlecompute:                 "mode": "0644"[0m
+[1;32m==> googlecompute:             },[0m
+[1;32m==> googlecompute:             "before_header": "/etc/sudoers.d/99_ansible_nopasswd (file attributes)"[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "attributes": null,[0m
+[1;32m==> googlecompute:             "backrefs": false,[0m
+[1;32m==> googlecompute:             "backup": false,[0m
+[1;32m==> googlecompute:             "create": true,[0m
+[1;32m==> googlecompute:             "firstmatch": false,[0m
+[1;32m==> googlecompute:             "group": "root",[0m
+[1;32m==> googlecompute:             "insertafter": null,[0m
+[1;32m==> googlecompute:             "insertbefore": null,[0m
+[1;32m==> googlecompute:             "line": "ybaadmin ALL=(ALL) NOPASSWD:ALL",[0m
+[1;32m==> googlecompute:             "mode": "0440",[0m
+[1;32m==> googlecompute:             "owner": "root",[0m
+[1;32m==> googlecompute:             "path": "/etc/sudoers.d/99_ansible_nopasswd",[0m
+[1;32m==> googlecompute:             "regexp": null,[0m
+[1;32m==> googlecompute:             "search_string": null,[0m
+[1;32m==> googlecompute:             "selevel": null,[0m
+[1;32m==> googlecompute:             "serole": null,[0m
+[1;32m==> googlecompute:             "setype": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "state": "present",[0m
+[1;32m==> googlecompute:             "unsafe_writes": false,[0m
+[1;32m==> googlecompute:             "validate": "visudo -cf %s"[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "line added and ownership, perms or SE linux context changed"[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Print User] **************************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:61[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "user": {[0m
+[1;32m==> googlecompute:         "changed": true,[0m
+[1;32m==> googlecompute:         "comment": "",[0m
+[1;32m==> googlecompute:         "create_home": true,[0m
+[1;32m==> googlecompute:         "failed": false,[0m
+[1;32m==> googlecompute:         "group": 1006,[0m
+[1;32m==> googlecompute:         "groups": "wheel",[0m
+[1;32m==> googlecompute:         "home": "/home/ybaadmin",[0m
+[1;32m==> googlecompute:         "name": "ybaadmin",[0m
+[1;32m==> googlecompute:         "shell": "/bin/bash",[0m
+[1;32m==> googlecompute:         "state": "present",[0m
+[1;32m==> googlecompute:         "system": false,[0m
+[1;32m==> googlecompute:         "uid": 1001[0m
+[1;32m==> googlecompute:     }[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Create a directory for /opt/yba-ctl] *************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:65[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/file.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-tmfaonjoshrwkrbvkhabdbgkmnetlibf ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"path": "/opt/yba-ctl", "changed": true, "diff": {"before": {"path": "/opt/yba-ctl", "state": "absent"}, "after": {"path": "/opt/yba-ctl", "state": "directory"}}, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0755", "state": "directory", "secontext": "unconfined_u:object_r:usr_t:s0", "size": 6, "invocation": {"module_args": {"path": "/opt/yba-ctl", "state": "directory", "mode": "0755", "recurse": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "diff": {[0m
+[1;32m==> googlecompute:         "after": {[0m
+[1;32m==> googlecompute:             "path": "/opt/yba-ctl",[0m
+[1;32m==> googlecompute:             "state": "directory"[0m
+[1;32m==> googlecompute:         },[0m
+[1;32m==> googlecompute:         "before": {[0m
+[1;32m==> googlecompute:             "path": "/opt/yba-ctl",[0m
+[1;32m==> googlecompute:             "state": "absent"[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "gid": 0,[0m
+[1;32m==> googlecompute:     "group": "root",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_diff_peek": null,[0m
+[1;32m==> googlecompute:             "_original_basename": null,[0m
+[1;32m==> googlecompute:             "access_time": null,[0m
+[1;32m==> googlecompute:             "access_time_format": "%Y%m%d%H%M.%S",[0m
+[1;32m==> googlecompute:             "attributes": null,[0m
+[1;32m==> googlecompute:             "follow": true,[0m
+[1;32m==> googlecompute:             "force": false,[0m
+[1;32m==> googlecompute:             "group": null,[0m
+[1;32m==> googlecompute:             "mode": "0755",[0m
+[1;32m==> googlecompute:             "modification_time": null,[0m
+[1;32m==> googlecompute:             "modification_time_format": "%Y%m%d%H%M.%S",[0m
+[1;32m==> googlecompute:             "owner": null,[0m
+[1;32m==> googlecompute:             "path": "/opt/yba-ctl",[0m
+[1;32m==> googlecompute:             "recurse": false,[0m
+[1;32m==> googlecompute:             "selevel": null,[0m
+[1;32m==> googlecompute:             "serole": null,[0m
+[1;32m==> googlecompute:             "setype": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "src": null,[0m
+[1;32m==> googlecompute:             "state": "directory",[0m
+[1;32m==> googlecompute:             "unsafe_writes": false[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "mode": "0755",[0m
+[1;32m==> googlecompute:     "owner": "root",[0m
+[1;32m==> googlecompute:     "path": "/opt/yba-ctl",[0m
+[1;32m==> googlecompute:     "secontext": "unconfined_u:object_r:usr_t:s0",[0m
+[1;32m==> googlecompute:     "size": 6,[0m
+[1;32m==> googlecompute:     "state": "directory",[0m
+[1;32m==> googlecompute:     "uid": 0[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Copy the license content to /opt/yba-ctl/yba.lic] ************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:71[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /tmp `"&& mkdir "` echo /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192 `" && echo ansible-tmp-1770618730.1197753-105394-203362076365192="` echo /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192 `" ) && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'ansible-tmp-1770618730.1197753-105394-203362076365192=/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192\n', b'')[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/stat.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-rfhqsznlemccwdzahftoxhocmqokwjdj ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": false, "stat": {"exists": false}, "invocation": {"module_args": {"path": "/opt/yba-ctl/yba.lic", "follow": false, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\n', b'')[0m
+[1;32m==> googlecompute: <136.116.40.169> PUT /home/adev4769/.ansible/tmp/ansible-local-1053585my74reg/tmpixfw812r TO /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC scp -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' /home/adev4769/.ansible/tmp/ansible-local-1053585my74reg/tmpixfw812r '[136.116.40.169]:/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source'[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'', b'')[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'chmod u+x /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/ /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'', b'')[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/copy.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-uspldbidihoaysdkomyxlujsspfqnjcg ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"dest": "/opt/yba-ctl/yba.lic", "src": "/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source", "md5sum": "1cd2c7ff7e1180997b08b12688ee3041", "checksum": "7622686bcb275c6f2afc562b0f642819479bdb46", "changed": true, "uid": 0, "gid": 0, "owner": "root", "group": "root", "mode": "0644", "state": "file", "secontext": "system_u:object_r:usr_t:s0", "size": 309, "invocation": {"module_args": {"dest": "/opt/yba-ctl/yba.lic", "owner": "root", "group": "root", "mode": "0644", "src": "/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source", "_original_basename": "tmpixfw812r", "follow": false, "checksum": "7622686bcb275c6f2afc562b0f642819479bdb46", "backup": false, "force": true, "unsafe_writes": false, "content": null, "validate": null, "directory_mode": null, "remote_src": null, "local_follow": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'rm -f -r /tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/ > /dev/null 2>&1 && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "checksum": "7622686bcb275c6f2afc562b0f642819479bdb46",[0m
+[1;32m==> googlecompute:     "dest": "/opt/yba-ctl/yba.lic",[0m
+[1;32m==> googlecompute:     "diff": [],[0m
+[1;32m==> googlecompute:     "gid": 0,[0m
+[1;32m==> googlecompute:     "group": "root",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_original_basename": "tmpixfw812r",[0m
+[1;32m==> googlecompute:             "attributes": null,[0m
+[1;32m==> googlecompute:             "backup": false,[0m
+[1;32m==> googlecompute:             "checksum": "7622686bcb275c6f2afc562b0f642819479bdb46",[0m
+[1;32m==> googlecompute:             "content": null,[0m
+[1;32m==> googlecompute:             "dest": "/opt/yba-ctl/yba.lic",[0m
+[1;32m==> googlecompute:             "directory_mode": null,[0m
+[1;32m==> googlecompute:             "follow": false,[0m
+[1;32m==> googlecompute:             "force": true,[0m
+[1;32m==> googlecompute:             "group": "root",[0m
+[1;32m==> googlecompute:             "local_follow": null,[0m
+[1;32m==> googlecompute:             "mode": "0644",[0m
+[1;32m==> googlecompute:             "owner": "root",[0m
+[1;32m==> googlecompute:             "remote_src": null,[0m
+[1;32m==> googlecompute:             "selevel": null,[0m
+[1;32m==> googlecompute:             "serole": null,[0m
+[1;32m==> googlecompute:             "setype": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "src": "/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source",[0m
+[1;32m==> googlecompute:             "unsafe_writes": false,[0m
+[1;32m==> googlecompute:             "validate": null[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "md5sum": "1cd2c7ff7e1180997b08b12688ee3041",[0m
+[1;32m==> googlecompute:     "mode": "0644",[0m
+[1;32m==> googlecompute:     "owner": "root",[0m
+[1;32m==> googlecompute:     "secontext": "system_u:object_r:usr_t:s0",[0m
+[1;32m==> googlecompute:     "size": 309,[0m
+[1;32m==> googlecompute:     "src": "/tmp/ansible-tmp-1770618730.1197753-105394-203362076365192/source",[0m
+[1;32m==> googlecompute:     "state": "file",[0m
+[1;32m==> googlecompute:     "uid": 0[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Copy YBA Package from the GCS to Packer Instance] ************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:79[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-wtazhooxxrsyfgqfeupxwpmphfnujjzz ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "", "stderr": "Copying gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz...\\n/ [0 files][    0.0 B/  1.8 GiB]                                                \\r-\\r- [0 files][ 57.5 MiB/  1.8 GiB]                                                \\r\\\\\\r|\\r| [0 files][135.6 MiB/  1.8 GiB]                                                \\r/\\r/ [0 files][215.5 MiB/  1.8 GiB]                                                \\r-\\r\\\\\\r\\\\ [0 files][298.6 MiB/  1.8 GiB]                                                \\r|\\r/\\r/ [0 files][375.9 MiB/  1.8 GiB]                                                \\r-\\r- [0 files][452.5 MiB/  1.8 GiB]                                                \\r\\\\\\r|\\r| [0 files][531.1 MiB/  1.8 GiB]                                                \\r/\\r-\\r- [0 files][607.4 MiB/  1.8 GiB]                                                \\r\\\\\\r\\\\ [0 files][684.8 MiB/  1.8 GiB]                                                \\r|\\r/\\r/ [0 files][761.8 MiB/  1.8 GiB]                                                \\r-\\r\\\\\\r\\\\ [0 files][838.9 MiB/  1.8 GiB]   77.0 MiB/s                                   \\r|\\r| [0 files][910.1 MiB/  1.8 GiB]   75.5 MiB/s                                   \\r/\\r-\\r- [0 files][986.1 MiB/  1.8 GiB]   75.4 MiB/s                                   \\r\\\\\\r|\\r| [0 files][  1.0 GiB/  1.8 GiB]   74.8 MiB/s                                   \\r/\\r/ [0 files][  1.1 GiB/  1.8 GiB]   74.6 MiB/s                                   \\r-\\r\\\\\\r\\\\ [0 files][  1.2 GiB/  1.8 GiB]   74.4 MiB/s                                   \\r|\\r/\\r/ [0 files][  1.3 GiB/  1.8 GiB]   75.4 MiB/s                                   \\r-\\r- [0 files][  1.3 GiB/  1.8 GiB]   75.6 MiB/s                                   \\r\\\\\\r|\\r| [0 files][  1.4 GiB/  1.8 GiB]   75.6 MiB/s                                   \\r/\\r-\\r- [0 files][  1.5 GiB/  1.8 GiB]   75.2 MiB/s                                   \\r\\\\\\r\\\\ [0 files][  1.6 GiB/  1.8 GiB]   75.0 MiB/s                                   \\r|\\r/\\r/ [0 files][  1.6 GiB/  1.8 GiB]   74.9 MiB/s                                   \\r-\\r\\\\\\r\\\\ [0 files][  1.7 GiB/  1.8 GiB]   74.9 MiB/s                                   \\r|\\r| [0 files][  1.8 GiB/  1.8 GiB]   75.3 MiB/s                                   \\r/\\r-\\r- [1 files][  1.8 GiB/  1.8 GiB]   76.1 MiB/s                                   \\r\\nOperation completed over 1 objects/1.8 GiB.                                      ", "rc": 0, "cmd": ["gsutil", "cp", "gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz"], "start": "2026-02-09 06:32:11.280515", "end": "2026-02-09 06:32:40.271595", "delta": "0:00:28.991080", "msg": "", "invocation": {"module_args": {"creates": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "_raw_params": "gsutil cp \\"gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz\\" \\"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz\\"", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "gsutil",[0m
+[1;32m==> googlecompute:         "cp",[0m
+[1;32m==> googlecompute:         "gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:         "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:00:28.991080",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:32:40.271595",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "gsutil cp \"gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz\" \"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz\"",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:32:11.280515",[0m
+[1;32m==> googlecompute:     "stderr": "Copying gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz...\n/ [0 files][    0.0 B/  1.8 GiB]                                                \r-\r- [0 files][ 57.5 MiB/  1.8 GiB]                                                \r\\\r|\r| [0 files][135.6 MiB/  1.8 GiB]                                                \r/\r/ [0 files][215.5 MiB/  1.8 GiB]                                                \r-\r\\\r\\ [0 files][298.6 MiB/  1.8 GiB]                                                \r|\r/\r/ [0 files][375.9 MiB/  1.8 GiB]                                                \r-\r- [0 files][452.5 MiB/  1.8 GiB]                                                \r\\\r|\r| [0 files][531.1 MiB/  1.8 GiB]                                                \r/\r-\r- [0 files][607.4 MiB/  1.8 GiB]                                                \r\\\r\\ [0 files][684.8 MiB/  1.8 GiB]                                                \r|\r/\r/ [0 files][761.8 MiB/  1.8 GiB]                                                \r-\r\\\r\\ [0 files][838.9 MiB/  1.8 GiB]   77.0 MiB/s                                   \r|\r| [0 files][910.1 MiB/  1.8 GiB]   75.5 MiB/s                                   \r/\r-\r- [0 files][986.1 MiB/  1.8 GiB]   75.4 MiB/s                                   \r\\\r|\r| [0 files][  1.0 GiB/  1.8 GiB]   74.8 MiB/s                                   \r/\r/ [0 files][  1.1 GiB/  1.8 GiB]   74.6 MiB/s                                   \r-\r\\\r\\ [0 files][  1.2 GiB/  1.8 GiB]   74.4 MiB/s                                   \r|\r/\r/ [0 files][  1.3 GiB/  1.8 GiB]   75.4 MiB/s                                   \r-\r- [0 files][  1.3 GiB/  1.8 GiB]   75.6 MiB/s                                   \r\\\r|\r| [0 files][  1.4 GiB/  1.8 GiB]   75.6 MiB/s                                   \r/\r-\r- [0 files][  1.5 GiB/  1.8 GiB]   75.2 MiB/s                                   \r\\\r\\ [0 files][  1.6 GiB/  1.8 GiB]   75.0 MiB/s                                   \r|\r/\r/ [0 files][  1.6 GiB/  1.8 GiB]   74.9 MiB/s                                   \r-\r\\\r\\ [0 files][  1.7 GiB/  1.8 GiB]   74.9 MiB/s                                   \r|\r| [0 files][  1.8 GiB/  1.8 GiB]   75.3 MiB/s                                   \r/\r-\r- [1 files][  1.8 GiB/  1.8 GiB]   76.1 MiB/s                                   \r\nOperation completed over 1 objects/1.8 GiB.                                      ",[0m
+[1;32m==> googlecompute:     "stderr_lines": [[0m
+[1;32m==> googlecompute:         "Copying gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz...",[0m
+[1;32m==> googlecompute:         "/ [0 files][    0.0 B/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][ 57.5 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][135.6 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][215.5 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][298.6 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][375.9 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][452.5 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][531.1 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][607.4 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][684.8 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][761.8 MiB/  1.8 GiB]                                                ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][838.9 MiB/  1.8 GiB]   77.0 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][910.1 MiB/  1.8 GiB]   75.5 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][986.1 MiB/  1.8 GiB]   75.4 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][  1.0 GiB/  1.8 GiB]   74.8 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][  1.1 GiB/  1.8 GiB]   74.6 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][  1.2 GiB/  1.8 GiB]   74.4 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][  1.3 GiB/  1.8 GiB]   75.4 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][  1.3 GiB/  1.8 GiB]   75.6 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][  1.4 GiB/  1.8 GiB]   75.6 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [0 files][  1.5 GiB/  1.8 GiB]   75.2 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][  1.6 GiB/  1.8 GiB]   75.0 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "/ [0 files][  1.6 GiB/  1.8 GiB]   74.9 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "\\",[0m
+[1;32m==> googlecompute:         "\\ [0 files][  1.7 GiB/  1.8 GiB]   74.9 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "|",[0m
+[1;32m==> googlecompute:         "| [0 files][  1.8 GiB/  1.8 GiB]   75.3 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "/",[0m
+[1;32m==> googlecompute:         "-",[0m
+[1;32m==> googlecompute:         "- [1 files][  1.8 GiB/  1.8 GiB]   76.1 MiB/s                                   ",[0m
+[1;32m==> googlecompute:         "Operation completed over 1 objects/1.8 GiB.                                      "[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "stdout": "",[0m
+[1;32m==> googlecompute:     "stdout_lines": [][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Extract YBA Installer tar.gz] ********************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:84[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /tmp `"&& mkdir "` echo /tmp/ansible-tmp-1770618760.3290298-105410-195972203764772 `" && echo ansible-tmp-1770618760.3290298-105410-195972203764772="` echo /tmp/ansible-tmp-1770618760.3290298-105410-195972203764772 `" ) && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'ansible-tmp-1770618760.3290298-105410-195972203764772=/tmp/ansible-tmp-1770618760.3290298-105410-195972203764772\n', b'')[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' -tt 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-lvwgtbbwoigzjltbklpsujgxjqdjipnb ; test -e /home/ybaadmin/yba_installer_full-2024.2.4.0-b89'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (1, b'', b'Shared connection to 136.116.40.169 closed.\r\n')[0m
+[1;32m==> googlecompute: <136.116.40.169> Failed to connect to the host via ssh: Shared connection to 136.116.40.169 closed.[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/stat.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-ntmehqqgqrjsrjgdtfegznjcwvnylpqq ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": false, "stat": {"exists": true, "path": "/home/ybaadmin/", "mode": "0700", "isdir": true, "ischr": false, "isblk": false, "isreg": false, "isfifo": false, "islnk": false, "issock": false, "uid": 1001, "gid": 1006, "size": 123, "inode": 50615468, "dev": 2050, "nlink": 2, "atime": 1770618729.1929824, "mtime": 1770618759.959316, "ctime": 1770618759.959316, "wusr": true, "rusr": true, "xusr": true, "wgrp": false, "rgrp": false, "xgrp": false, "woth": false, "roth": false, "xoth": false, "isuid": false, "isgid": false, "blocks": 0, "block_size": 4096, "device_type": 0, "readable": true, "writeable": true, "executable": true, "pw_name": "ybaadmin", "gr_name": "ybaadmin", "mimetype": "inode/directory", "charset": "binary", "version": "1489961649", "attributes": [], "attr_flags": ""}, "invocation": {"module_args": {"path": "/home/ybaadmin/", "follow": true, "get_checksum": true, "checksum_algorithm": "sha1", "get_md5": false, "get_mime": true, "get_attributes": true}}}\n', b'')[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/unarchive.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-xnyolojhaugznoauhejpgjxpqhigdwgj ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"handler": "TgzArchive", "dest": "/home/ybaadmin/", "src": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "extract_results": {"cmd": ["/bin/gtar", "--extract", "-C", "/home/ybaadmin/", "-z", "-f", "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz"], "rc": 0, "out": "", "err": ""}, "changed": true, "uid": 1001, "gid": 1006, "owner": "ybaadmin", "group": "ybaadmin", "mode": "0700", "state": "directory", "secontext": "unconfined_u:object_r:user_home_dir_t:s0", "size": 164, "invocation": {"module_args": {"creates": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89", "src": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "dest": "/home/ybaadmin/", "remote_src": true, "list_files": false, "keep_newer": false, "exclude": [], "include": [], "extra_opts": [], "validate_certs": true, "io_buffer_size": 65536, "copy": true, "decrypt": true, "unsafe_writes": false, "mode": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'rm -f -r /tmp/ansible-tmp-1770618760.3290298-105410-195972203764772/ > /dev/null 2>&1 && sleep 0'"'"''[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "dest": "/home/ybaadmin/",[0m
+[1;32m==> googlecompute:     "extract_results": {[0m
+[1;32m==> googlecompute:         "cmd": [[0m
+[1;32m==> googlecompute:             "/bin/gtar",[0m
+[1;32m==> googlecompute:             "--extract",[0m
+[1;32m==> googlecompute:             "-C",[0m
+[1;32m==> googlecompute:             "/home/ybaadmin/",[0m
+[1;32m==> googlecompute:             "-z",[0m
+[1;32m==> googlecompute:             "-f",[0m
+[1;32m==> googlecompute:             "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz"[0m
+[1;32m==> googlecompute:         ],[0m
+[1;32m==> googlecompute:         "err": "",[0m
+[1;32m==> googlecompute:         "out": "",[0m
+[1;32m==> googlecompute:         "rc": 0[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "gid": 1006,[0m
+[1;32m==> googlecompute:     "group": "ybaadmin",[0m
+[1;32m==> googlecompute:     "handler": "TgzArchive",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "attributes": null,[0m
+[1;32m==> googlecompute:             "copy": true,[0m
+[1;32m==> googlecompute:             "creates": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89",[0m
+[1;32m==> googlecompute:             "decrypt": true,[0m
+[1;32m==> googlecompute:             "dest": "/home/ybaadmin/",[0m
+[1;32m==> googlecompute:             "exclude": [],[0m
+[1;32m==> googlecompute:             "extra_opts": [],[0m
+[1;32m==> googlecompute:             "group": null,[0m
+[1;32m==> googlecompute:             "include": [],[0m
+[1;32m==> googlecompute:             "io_buffer_size": 65536,[0m
+[1;32m==> googlecompute:             "keep_newer": false,[0m
+[1;32m==> googlecompute:             "list_files": false,[0m
+[1;32m==> googlecompute:             "mode": null,[0m
+[1;32m==> googlecompute:             "owner": null,[0m
+[1;32m==> googlecompute:             "remote_src": true,[0m
+[1;32m==> googlecompute:             "selevel": null,[0m
+[1;32m==> googlecompute:             "serole": null,[0m
+[1;32m==> googlecompute:             "setype": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "src": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:             "unsafe_writes": false,[0m
+[1;32m==> googlecompute:             "validate_certs": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "mode": "0700",[0m
+[1;32m==> googlecompute:     "owner": "ybaadmin",[0m
+[1;32m==> googlecompute:     "secontext": "unconfined_u:object_r:user_home_dir_t:s0",[0m
+[1;32m==> googlecompute:     "size": 164,[0m
+[1;32m==> googlecompute:     "src": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:     "state": "directory",[0m
+[1;32m==> googlecompute:     "uid": 1001[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Remove the package file] *************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:92[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/file.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-hqorjhwespdqsmvwdfuvynoekzswxlpb ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "changed": true, "diff": {"before": {"path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "state": "file"}, "after": {"path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "state": "absent"}}, "state": "absent", "invocation": {"module_args": {"path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz", "state": "absent", "recurse": false, "force": false, "follow": true, "modification_time_format": "%Y%m%d%H%M.%S", "access_time_format": "%Y%m%d%H%M.%S", "unsafe_writes": false, "_original_basename": null, "_diff_peek": null, "src": null, "modification_time": null, "access_time": null, "mode": null, "owner": null, "group": null, "seuser": null, "serole": null, "selevel": null, "setype": null, "attributes": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "diff": {[0m
+[1;32m==> googlecompute:         "after": {[0m
+[1;32m==> googlecompute:             "path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:             "state": "absent"[0m
+[1;32m==> googlecompute:         },[0m
+[1;32m==> googlecompute:         "before": {[0m
+[1;32m==> googlecompute:             "path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:             "state": "file"[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_diff_peek": null,[0m
+[1;32m==> googlecompute:             "_original_basename": null,[0m
+[1;32m==> googlecompute:             "access_time": null,[0m
+[1;32m==> googlecompute:             "access_time_format": "%Y%m%d%H%M.%S",[0m
+[1;32m==> googlecompute:             "attributes": null,[0m
+[1;32m==> googlecompute:             "follow": true,[0m
+[1;32m==> googlecompute:             "force": false,[0m
+[1;32m==> googlecompute:             "group": null,[0m
+[1;32m==> googlecompute:             "mode": null,[0m
+[1;32m==> googlecompute:             "modification_time": null,[0m
+[1;32m==> googlecompute:             "modification_time_format": "%Y%m%d%H%M.%S",[0m
+[1;32m==> googlecompute:             "owner": null,[0m
+[1;32m==> googlecompute:             "path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:             "recurse": false,[0m
+[1;32m==> googlecompute:             "selevel": null,[0m
+[1;32m==> googlecompute:             "serole": null,[0m
+[1;32m==> googlecompute:             "setype": null,[0m
+[1;32m==> googlecompute:             "seuser": null,[0m
+[1;32m==> googlecompute:             "src": null,[0m
+[1;32m==> googlecompute:             "state": "absent",[0m
+[1;32m==> googlecompute:             "unsafe_writes": false[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "path": "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz",[0m
+[1;32m==> googlecompute:     "state": "absent"[0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Run the pre-flight check] ************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:97[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-rtihlyqmykdzozinqjevevbsbptzknrl ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'install does not exist\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'validate-config\'    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'user\'               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'cpu\'                \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'memory\'             \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'port\'               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'python\'             \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'license\'            \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'db-config\'          \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'validate-locale-config\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'prometheus\'         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'replicated-exists\'  \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'systemd_user_supported\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'glibc\'              \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'postgres\'           \\n#  Check name             Status Error\\n1  install does not exist Pass   \\n2  validate-config        Pass   \\n3  user                   Pass   \\n4  cpu                    Pass   \\n5  memory                 Pass   \\n6  port                   Pass   \\n7  python                 Pass   \\n8  license                Pass   \\n9  db-config              Pass   \\n10 validate-locale-config Pass   \\n11 prometheus             Pass   \\n12 replicated-exists      Pass   \\n13 glibc                  Pass   \\n14 postgres               Pass   ", "stderr": "", "rc": 0, "cmd": ["sudo", "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl", "--skip_preflight", "disk-availability", "preflight", "-f"], "start": "2026-02-09 06:33:13.546102", "end": "2026-02-09 06:33:13.599796", "delta": "0:00:00.053694", "msg": "", "invocation": {"module_args": {"_raw_params": "sudo \\"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl\\" --skip_preflight disk-availability preflight -f", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "sudo",[0m
+[1;32m==> googlecompute:         "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl",[0m
+[1;32m==> googlecompute:         "--skip_preflight",[0m
+[1;32m==> googlecompute:         "disk-availability",[0m
+[1;32m==> googlecompute:         "preflight",[0m
+[1;32m==> googlecompute:         "-f"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:00:00.053694",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:33:13.599796",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "sudo \"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl\" --skip_preflight disk-availability preflight -f",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": null,[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:33:13.546102",[0m
+[1;32m==> googlecompute:     "stderr": "",[0m
+[1;32m==> googlecompute:     "stderr_lines": [],[0m
+[1;32m==> googlecompute:     "stdout": "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           \n#  Check name             Status Error\n1  install does not exist Pass   \n2  validate-config        Pass   \n3  user                   Pass   \n4  cpu                    Pass   \n5  memory                 Pass   \n6  port                   Pass   \n7  python                 Pass   \n8  license                Pass   \n9  db-config              Pass   \n10 validate-locale-config Pass   \n11 prometheus             Pass   \n12 replicated-exists      Pass   \n13 glibc                  Pass   \n14 postgres               Pass   ",[0m
+[1;32m==> googlecompute:     "stdout_lines": [[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           ",[0m
+[1;32m==> googlecompute:         "#  Check name             Status Error",[0m
+[1;32m==> googlecompute:         "1  install does not exist Pass   ",[0m
+[1;32m==> googlecompute:         "2  validate-config        Pass   ",[0m
+[1;32m==> googlecompute:         "3  user                   Pass   ",[0m
+[1;32m==> googlecompute:         "4  cpu                    Pass   ",[0m
+[1;32m==> googlecompute:         "5  memory                 Pass   ",[0m
+[1;32m==> googlecompute:         "6  port                   Pass   ",[0m
+[1;32m==> googlecompute:         "7  python                 Pass   ",[0m
+[1;32m==> googlecompute:         "8  license                Pass   ",[0m
+[1;32m==> googlecompute:         "9  db-config              Pass   ",[0m
+[1;32m==> googlecompute:         "10 validate-locale-config Pass   ",[0m
+[1;32m==> googlecompute:         "11 prometheus             Pass   ",[0m
+[1;32m==> googlecompute:         "12 replicated-exists      Pass   ",[0m
+[1;32m==> googlecompute:         "13 glibc                  Pass   ",[0m
+[1;32m==> googlecompute:         "14 postgres               Pass   "[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [print output] ************************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:101[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "output.stdout_lines": [[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           ",[0m
+[1;32m==> googlecompute:         "#  Check name             Status Error",[0m
+[1;32m==> googlecompute:         "1  install does not exist Pass   ",[0m
+[1;32m==> googlecompute:         "2  validate-config        Pass   ",[0m
+[1;32m==> googlecompute:         "3  user                   Pass   ",[0m
+[1;32m==> googlecompute:         "4  cpu                    Pass   ",[0m
+[1;32m==> googlecompute:         "5  memory                 Pass   ",[0m
+[1;32m==> googlecompute:         "6  port                   Pass   ",[0m
+[1;32m==> googlecompute:         "7  python                 Pass   ",[0m
+[1;32m==> googlecompute:         "8  license                Pass   ",[0m
+[1;32m==> googlecompute:         "9  db-config              Pass   ",[0m
+[1;32m==> googlecompute:         "10 validate-locale-config Pass   ",[0m
+[1;32m==> googlecompute:         "11 prometheus             Pass   ",[0m
+[1;32m==> googlecompute:         "12 replicated-exists      Pass   ",[0m
+[1;32m==> googlecompute:         "13 glibc                  Pass   ",[0m
+[1;32m==> googlecompute:         "14 postgres               Pass   "[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [Install the Yugabyte] ****************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:105[0m
+[1;32m==> googlecompute: Using module file /usr/lib/python3.9/site-packages/ansible/modules/command.py[0m
+[1;32m==> googlecompute: Pipelining is enabled.[0m
+[1;32m==> googlecompute: <136.116.40.169> ESTABLISH SSH CONNECTION FOR USER: cloud-user[0m
+[1;32m==> googlecompute: <136.116.40.169> SSH: EXEC ssh -o ControlMaster=auto -o ControlPersist=60s -o PreferredAuthentications=publickey -o StrictHostKeyChecking=no -o Port=22 -o 'IdentityFile="/tmp/ansible-key3006360827"' -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="cloud-user"' -o ConnectTimeout=10 -o IdentitiesOnly=yes -o 'ControlPath="/home/adev4769/.ansible/cp/f19482b43e"' 136.116.40.169 '/bin/sh -c '"'"'sudo -H -S -n  -u root /bin/sh -c '"'"'"'"'"'"'"'"'echo BECOME-SUCCESS-vazlyqcnwzeevebnpiyeccbydjvagvpx ; /usr/bin/python3'"'"'"'"'"'"'"'"' && sleep 0'"'"''[0m
+[1;32m==> googlecompute: Escalation succeeded[0m
+[1;32m==> googlecompute: <136.116.40.169> (0, b'\n{"changed": true, "stdout": "\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Installing yba-ctl                           \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'install does not exist\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'validate-config\'    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'user\'               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'cpu\'                \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'memory\'             \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'port\'               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'python\'             \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'license\'            \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'db-config\'          \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'validate-locale-config\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'prometheus\'         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'replicated-exists\'  \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'systemd_user_supported\' \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'glibc\'              \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Running preflight check \'postgres\'           \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Starting Common install                      \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Guessing primary IP of host to be 10.0.0.8   \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:13Z] Generating default password for postgres     \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:26Z] Extracting yugabundle package.               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:33:59Z] Extracting third-party dependencies.         \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:01Z] Generating self-signed server certificates   \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:01Z] create self signed certs dir /opt/yugabyte/data/yba-installer/certs \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:02Z] About to install component postgres          \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres install                    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:02Z] Creating file (and directory path): /etc/systemd/system/postgres.service \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:02Z] Finished Postgres install                    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres initialize                 \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Finishing Postgres initialize                \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Completed installing component postgres      \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] About to install component prometheus        \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Starting Prometheus install                  \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/prometheus.yml \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /etc/systemd/system/prometheus.service \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/web.yml \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus install                 \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Starting Prometheus initialize               \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus initialize              \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Completed installing component prometheus    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] About to install component yb-platform       \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Starting Platform install                    \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/yb-platform/conf/yb-platform.conf \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /etc/systemd/system/yb-platform.service \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:06Z] Extracting devops and yugaware packages.     \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:16Z] Finishing Platform install                   \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:16Z] Starting Platform initialize                 \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:17Z] Generating concatenated PEM from /opt/yugabyte/data/yba-installer/certs/server-key.pem /opt/yugabyte/data/yba-installer/certs/server-cert.pem  \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:17Z] Finishing Platform initialize                \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:17Z] Completed installing component yb-platform   \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:18Z] Waiting for YBA ready.                       \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:18Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:28Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:38Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:48Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:34:58Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:35:08Z] systemctl show postgres.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:35:08Z] systemctl show prometheus.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:35:08Z] systemctl show yb-platform.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \\n           YBA Url |   Install Root |            yba-ctl config |              yba-ctl Logs |  YBA Installer State |\\n  https://10.0.0.8 |  /opt/yugabyte |  /opt/yba-ctl/yba-ctl.yml |  /opt/yba-ctl/yba-ctl.log |            Installed |\\n\\nServices:\\n  Systemd service |         Version |  Port |                                Log Files |                                 Binary Directory |  Running Status |  Since |\\n         postgres |           14.17 |  5432 |     /opt/yugabyte/data/logs/postgres.log |  /opt/yugabyte/software/2024.2.4.0-b89/pgsql/bin |         Running |  1m 5s |\\n       prometheus |           3.2.1 |  9090 |   /opt/yugabyte/data/logs/prometheus.log |                                                  |         Running |  1m 3s |\\n      yb-platform |  2024.2.4.0-b89 |   443 |  /opt/yugabyte/data/logs/application.log |                                                  |         Running |    52s |\\n\\u001b[36mINFO\\u001b[0m[2026-02-09T06:35:08Z] Successfully installed YugabyteDB Anywhere!  ", "stderr": "", "rc": 0, "cmd": ["sudo", "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl", "--skip_preflight", "disk-availability", "install", "-f"], "start": "2026-02-09 06:33:13.909589", "end": "2026-02-09 06:35:08.775201", "delta": "0:01:54.865612", "msg": "", "invocation": {"module_args": {"_raw_params": "sudo \\"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl\\" --skip_preflight disk-availability install -f", "_uses_shell": false, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\n', b'')[0m
+[1;32m==> googlecompute: changed: [default] => {[0m
+[1;32m==> googlecompute:     "changed": true,[0m
+[1;32m==> googlecompute:     "cmd": [[0m
+[1;32m==> googlecompute:         "sudo",[0m
+[1;32m==> googlecompute:         "/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl",[0m
+[1;32m==> googlecompute:         "--skip_preflight",[0m
+[1;32m==> googlecompute:         "disk-availability",[0m
+[1;32m==> googlecompute:         "install",[0m
+[1;32m==> googlecompute:         "-f"[0m
+[1;32m==> googlecompute:     ],[0m
+[1;32m==> googlecompute:     "delta": "0:01:54.865612",[0m
+[1;32m==> googlecompute:     "end": "2026-02-09 06:35:08.775201",[0m
+[1;32m==> googlecompute:     "invocation": {[0m
+[1;32m==> googlecompute:         "module_args": {[0m
+[1;32m==> googlecompute:             "_raw_params": "sudo \"/home/ybaadmin/yba_installer_full-2024.2.4.0-b89/yba-ctl\" --skip_preflight disk-availability install -f",[0m
+[1;32m==> googlecompute:             "_uses_shell": false,[0m
+[1;32m==> googlecompute:             "argv": null,[0m
+[1;32m==> googlecompute:             "chdir": null,[0m
+[1;32m==> googlecompute:             "creates": null,[0m
+[1;32m==> googlecompute:             "executable": null,[0m
+[1;32m==> googlecompute:             "removes": null,[0m
+[1;32m==> googlecompute:             "stdin": null,[0m
+[1;32m==> googlecompute:             "stdin_add_newline": true,[0m
+[1;32m==> googlecompute:             "strip_empty_ends": true[0m
+[1;32m==> googlecompute:         }[0m
+[1;32m==> googlecompute:     },[0m
+[1;32m==> googlecompute:     "msg": "",[0m
+[1;32m==> googlecompute:     "rc": 0,[0m
+[1;32m==> googlecompute:     "start": "2026-02-09 06:33:13.909589",[0m
+[1;32m==> googlecompute:     "stderr": "",[0m
+[1;32m==> googlecompute:     "stderr_lines": [],[0m
+[1;32m==> googlecompute:     "stdout": "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Installing yba-ctl                           \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Starting Common install                      \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Guessing primary IP of host to be 10.0.0.8   \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Generating default password for postgres     \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:26Z] Extracting yugabundle package.               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:33:59Z] Extracting third-party dependencies.         \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] Generating self-signed server certificates   \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] create self signed certs dir /opt/yugabyte/data/yba-installer/certs \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] About to install component postgres          \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres install                    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Creating file (and directory path): /etc/systemd/system/postgres.service \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Finished Postgres install                    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres initialize                 \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Finishing Postgres initialize                \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Completed installing component postgres      \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] About to install component prometheus        \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Starting Prometheus install                  \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/prometheus.yml \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /etc/systemd/system/prometheus.service \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/web.yml \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus install                 \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Prometheus initialize               \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus initialize              \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Completed installing component prometheus    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] About to install component yb-platform       \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Platform install                    \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/yb-platform/conf/yb-platform.conf \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /etc/systemd/system/yb-platform.service \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Extracting devops and yugaware packages.     \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Finishing Platform install                   \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Starting Platform initialize                 \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Generating concatenated PEM from /opt/yugabyte/data/yba-installer/certs/server-key.pem /opt/yugabyte/data/yba-installer/certs/server-cert.pem  \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Finishing Platform initialize                \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Completed installing component yb-platform   \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] Waiting for YBA ready.                       \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:28Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:38Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:48Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:34:58Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. \n\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show postgres.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \n\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show prometheus.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \n\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show yb-platform.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp \n           YBA Url |   Install Root |            yba-ctl config |              yba-ctl Logs |  YBA Installer State |\n  https://10.0.0.8 |  /opt/yugabyte |  /opt/yba-ctl/yba-ctl.yml |  /opt/yba-ctl/yba-ctl.log |            Installed |\n\nServices:\n  Systemd service |         Version |  Port |                                Log Files |                                 Binary Directory |  Running Status |  Since |\n         postgres |           14.17 |  5432 |     /opt/yugabyte/data/logs/postgres.log |  /opt/yugabyte/software/2024.2.4.0-b89/pgsql/bin |         Running |  1m 5s |\n       prometheus |           3.2.1 |  9090 |   /opt/yugabyte/data/logs/prometheus.log |                                                  |         Running |  1m 3s |\n      yb-platform |  2024.2.4.0-b89 |   443 |  /opt/yugabyte/data/logs/application.log |                                                  |         Running |    52s |\n\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] Successfully installed YugabyteDB Anywhere!  ",[0m
+[1;32m==> googlecompute:     "stdout_lines": [[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Installing yba-ctl                           ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Starting Common install                      ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Guessing primary IP of host to be 10.0.0.8   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Generating default password for postgres     ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:26Z] Extracting yugabundle package.               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:59Z] Extracting third-party dependencies.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] Generating self-signed server certificates   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] create self signed certs dir /opt/yugabyte/data/yba-installer/certs ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] About to install component postgres          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Creating file (and directory path): /etc/systemd/system/postgres.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Finished Postgres install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres initialize                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Finishing Postgres initialize                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Completed installing component postgres      ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] About to install component prometheus        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Starting Prometheus install                  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/prometheus.yml ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /etc/systemd/system/prometheus.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/web.yml ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus install                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Prometheus initialize               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus initialize              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Completed installing component prometheus    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] About to install component yb-platform       ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Platform install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/yb-platform/conf/yb-platform.conf ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /etc/systemd/system/yb-platform.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Extracting devops and yugaware packages.     ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Finishing Platform install                   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Starting Platform initialize                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Generating concatenated PEM from /opt/yugabyte/data/yba-installer/certs/server-key.pem /opt/yugabyte/data/yba-installer/certs/server-cert.pem  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Finishing Platform initialize                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Completed installing component yb-platform   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] Waiting for YBA ready.                       ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:28Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:38Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:48Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:58Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show postgres.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show prometheus.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show yb-platform.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "           YBA Url |   Install Root |            yba-ctl config |              yba-ctl Logs |  YBA Installer State |",[0m
+[1;32m==> googlecompute:         "  https://10.0.0.8 |  /opt/yugabyte |  /opt/yba-ctl/yba-ctl.yml |  /opt/yba-ctl/yba-ctl.log |            Installed |",[0m
+[1;32m==> googlecompute:         "",[0m
+[1;32m==> googlecompute:         "Services:",[0m
+[1;32m==> googlecompute:         "  Systemd service |         Version |  Port |                                Log Files |                                 Binary Directory |  Running Status |  Since |",[0m
+[1;32m==> googlecompute:         "         postgres |           14.17 |  5432 |     /opt/yugabyte/data/logs/postgres.log |  /opt/yugabyte/software/2024.2.4.0-b89/pgsql/bin |         Running |  1m 5s |",[0m
+[1;32m==> googlecompute:         "       prometheus |           3.2.1 |  9090 |   /opt/yugabyte/data/logs/prometheus.log |                                                  |         Running |  1m 3s |",[0m
+[1;32m==> googlecompute:         "      yb-platform |  2024.2.4.0-b89 |   443 |  /opt/yugabyte/data/logs/application.log |                                                  |         Running |    52s |",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] Successfully installed YugabyteDB Anywhere!  "[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: TASK [print output] ************************************************************[0m
+[1;32m==> googlecompute: task path: /home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml:109[0m
+[1;32m==> googlecompute: ok: [default] => {[0m
+[1;32m==> googlecompute:     "install.stdout_lines": [[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Installing yba-ctl                           ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'install does not exist' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-config'    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Config at /opt/yba-ctl/yba-ctl.yml was found to be valid. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'user'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'cpu'                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 4 Virtual CPUs! ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'memory'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets the requirement of 8 GB.        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'port'               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 9090 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 443 successful.          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Connection to port: 5432 successful.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'python'             ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] System meets Python installation requirements with version Python 3.9.25 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'license'            ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'db-config'          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'validate-locale-config' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'prometheus'         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'replicated-exists'  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'systemd_user_supported' ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'glibc'              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Running preflight check 'postgres'           ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Starting Common install                      ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Guessing primary IP of host to be 10.0.0.8   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:13Z] Generating default password for postgres     ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:26Z] Extracting yugabundle package.               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:33:59Z] Extracting third-party dependencies.         ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] Generating self-signed server certificates   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:01Z] create self signed certs dir /opt/yugabyte/data/yba-installer/certs ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] About to install component postgres          ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Creating file (and directory path): /etc/systemd/system/postgres.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Finished Postgres install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:02Z] Starting Postgres initialize                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Finishing Postgres initialize                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Completed installing component postgres      ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] About to install component prometheus        ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Starting Prometheus install                  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/prometheus.yml ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /etc/systemd/system/prometheus.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:04Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/prometheus/conf/web.yml ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus install                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Prometheus initialize               ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Finishing Prometheus initialize              ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Completed installing component prometheus    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] About to install component yb-platform       ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Starting Platform install                    ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /opt/yugabyte/software/2024.2.4.0-b89/yb-platform/conf/yb-platform.conf ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Creating file (and directory path): /etc/systemd/system/yb-platform.service ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:06Z] Extracting devops and yugaware packages.     ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Finishing Platform install                   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:16Z] Starting Platform initialize                 ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Generating concatenated PEM from /opt/yugabyte/data/yba-installer/certs/server-key.pem /opt/yugabyte/data/yba-installer/certs/server-cert.pem  ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Finishing Platform initialize                ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:17Z] Completed installing component yb-platform   ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] Waiting for YBA ready.                       ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:18Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:28Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:38Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:48Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:34:58Z] YBA at https://10.0.0.8:443/api/v1/app_version not ready. Checking again in 10 seconds. ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show postgres.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show prometheus.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] systemctl show yb-platform.service --property LoadState,SubState,ActiveState,ActiveEnterTimestamp,ActiveExitTimestamp ",[0m
+[1;32m==> googlecompute:         "           YBA Url |   Install Root |            yba-ctl config |              yba-ctl Logs |  YBA Installer State |",[0m
+[1;32m==> googlecompute:         "  https://10.0.0.8 |  /opt/yugabyte |  /opt/yba-ctl/yba-ctl.yml |  /opt/yba-ctl/yba-ctl.log |            Installed |",[0m
+[1;32m==> googlecompute:         "",[0m
+[1;32m==> googlecompute:         "Services:",[0m
+[1;32m==> googlecompute:         "  Systemd service |         Version |  Port |                                Log Files |                                 Binary Directory |  Running Status |  Since |",[0m
+[1;32m==> googlecompute:         "         postgres |           14.17 |  5432 |     /opt/yugabyte/data/logs/postgres.log |  /opt/yugabyte/software/2024.2.4.0-b89/pgsql/bin |         Running |  1m 5s |",[0m
+[1;32m==> googlecompute:         "       prometheus |           3.2.1 |  9090 |   /opt/yugabyte/data/logs/prometheus.log |                                                  |         Running |  1m 3s |",[0m
+[1;32m==> googlecompute:         "      yb-platform |  2024.2.4.0-b89 |   443 |  /opt/yugabyte/data/logs/application.log |                                                  |         Running |    52s |",[0m
+[1;32m==> googlecompute:         "\u001b[36mINFO\u001b[0m[2026-02-09T06:35:08Z] Successfully installed YugabyteDB Anywhere!  "[0m
+[1;32m==> googlecompute:     ][0m
+[1;32m==> googlecompute: }[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: PLAY RECAP *********************************************************************[0m
+[1;32m==> googlecompute: default                    : ok=18   changed=12   unreachable=0    failed=0    skipped=0    rescued=0    ignored=0[0m
+[1;32m==> googlecompute:[0m
+[1;32m==> googlecompute: Deleting instance...[0m
+[1;32m==> googlecompute: Instance has been deleted![0m
+[1;32m==> googlecompute: Creating image...[0m
+[1;32m==> googlecompute: Deleting disk...[0m
+[1;32m==> googlecompute: Disk has been deleted![0m
+[1;32mBuild 'googlecompute' finished after 8 minutes 2 seconds.[0m
+
+==> Wait completed after 8 minutes 2 seconds
+
+==> Builds finished. The artifacts of successful builds are:
+--> googlecompute: A disk image was created in the 'project-af758472-c239-4625-869' project: yugabyte-packer-vb2024-v1-1770618601
