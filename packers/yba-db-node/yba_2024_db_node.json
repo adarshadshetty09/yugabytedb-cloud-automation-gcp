@@ -17,7 +17,7 @@
       "metadata": {
         "enable-oslogin": "FALSE"
       },
-      "image_name": "yugabyte-packer-vb2024-v1-{{timestamp}}",
+      "image_name": "yugabyte-db-node-packer-vb2024-v1-{{timestamp}}",
       "image_storage_locations": ["us-central1"]
     }
   ],
