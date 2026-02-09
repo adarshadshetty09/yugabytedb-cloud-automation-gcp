@@ -27,7 +27,7 @@
       "user": "cloud-user",
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba-db-node/yba_2024_db_node.yaml",
       "extra_arguments": [
-        "-v"
+        "-vvvvv"
       ],
       "use_proxy": false
     }

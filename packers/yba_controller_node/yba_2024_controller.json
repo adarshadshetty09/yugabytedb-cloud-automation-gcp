@@ -27,7 +27,7 @@
       "user": "cloud-user",
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
       "extra_arguments": [
-        "-vvv",
+        "-vvvvv",
         "--vault-id=default@/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/pass.txt"
       ],
       "use_proxy": false
