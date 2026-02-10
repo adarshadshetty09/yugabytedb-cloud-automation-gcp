@@ -99,29 +99,27 @@
       group: "{{ db_user }}"
       mode: '0755'
 
+  - name: Set vm.swappiness
+    ansible.builtin.command: sudo bash -c 'sysctl vm.swappiness=0 >> /etc/sysctl.conf'
+
   - name: Configure core dump file pattern
-    ansible.builtin.sysctl:
-      name: kernel.core_pattern
-      value: "{{ core_dump_dir }}/core_%p_%t_%E"
-      state: present
-      reload: yes
+    ansible.builtin.command: sudo sysctl kernel.core_pattern=/home/yugabyte/cores/core_%p_%t_%E
+
 
   # -------------------------------------------------------------------
   # KERNEL TUNING (SYSCTL)
   # -------------------------------------------------------------------
-  - name: Set vm.swappiness
-    ansible.builtin.sysctl:
-      name: vm.swappiness
-      value: "0"
-      state: present
-      reload: yes
+
 
   - name: Set vm.max_map_count
-    ansible.builtin.sysctl:
-      name: vm.max_map_count
-      value: "262144"
-      state: present
-      reload: yes
+    ansible.builtin.command: sudo sysctl -w vm.max_map_count=262144
+
+  - name: Set vm.max_map_count_modify
+    ansible.builtin.command: sudo bash -c 'sysctl vm.max_map_count=262144 >> /etc/sysctl.conf'
+
+  - name: Set vm.swappiness
+    ansible.builtin.command: sysctl vm.max_map_count
+
 
   # -------------------------------------------------------------------
   # TRANSPARENT HUGEPAGES (VERIFY ONLY)
@@ -134,10 +132,14 @@
   - name: Print Transparent HugePages status
     ansible.builtin.debug:
       var: thp.stdout_lines
-
+ 
   # -------------------------------------------------------------------
-  # VALIDATION
+  # VALIDATION (IMPORTANT)
   # -------------------------------------------------------------------
   - name: Validate yugabyte user
     ansible.builtin.command: id yugabyte
+    changed_when: false
+
+  - name: Validate sysctl values
+    ansible.builtin.command: sysctl -a
     changed_when: false
