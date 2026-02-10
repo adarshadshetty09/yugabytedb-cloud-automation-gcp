@@ -1,3 +1,22 @@
+[root@yba1 yba-cli]# ls
+yba_cli-2024.2.4.0-b89-darwin-amd64  yba_cli-2024.2.4.0-b89-darwin-arm64  yba_cli-2024.2.4.0-b89-linux-amd64  yba_cli-2024.2.4.0-b89-linux-arm64
+[root@yba1 yba-cli]# cd yba_cli-2024.2.4.0-b89-linux-amd64/
+[root@yba1 yba_cli-2024.2.4.0-b89-linux-amd64]# ls
+yba
+[root@yba1 yba_cli-2024.2.4.0-b89-linux-amd64]# pwd
+/mnt/yba/software/2024.2.4.0-b89/yb-platform/yugaware/yba-cli/yba_cli-2024.2.4.0-b89-linux-amd64
+[root@yba1 yba_cli-2024.2.4.0-b89-linux-amd64]# ls -lart 
+total 25156
+-rwxr-xr-x. 1 yugabyte yugabyte 25751150 Jul  4  2025 yba
+drwxr-x---. 2 yugabyte yugabyte     4096 Feb 10 11:57 .
+drwxr-x---. 6 yugabyte yugabyte     4096 Feb 10 11:57 ..
+[root@yba1 yba_cli-2024.2.4.0-b89-linux-amd64]# 
+
+
+
+
+PATH = /mnt/yba/software/2024.2.4.0-b89/yb-platform/yugaware/yba-cli/yba_cli-2024.2.4.0-b89-linux-amd64
+
 # --- 1. YBA Registration ---
 ./yba register \
   -f \
