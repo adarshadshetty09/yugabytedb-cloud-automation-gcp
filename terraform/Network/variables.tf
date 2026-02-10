@@ -23,8 +23,6 @@ variable "subnet" {
   })
 }
 
-
-
 variable "firewall_rules" {
   type = map(object({
     direction     = string
