@@ -78,11 +78,11 @@
       ignore_errors: true
 
     ## 2. Set Ownership for Yugabyte Directories
-    - name: Set Yugabyte data directories ownership to ybaadmin:ybaadmin recursively
+    - name: Set Yugabyte data directories ownership to yugabyte:yugabyte recursively
       ansible.builtin.file:
         path: "/mnt/{{ item }}"
-        owner: ybaadmin
-        group: ybaadmin
+        owner: yugabyte
+        group: yugabyte
         state: directory
         recurse: yes
       loop:
