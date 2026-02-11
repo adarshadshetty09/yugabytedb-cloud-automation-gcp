@@ -27,6 +27,7 @@
     "inline": [
       "sudo yum clean all",
       "sudo yum install -y git",
+      "sudo yum install -y wget ",
       "sudo yum install -y ansible-core"
     ]
   },
