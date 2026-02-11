@@ -29,7 +29,7 @@
       name: "{{ db_user }}"
       uid: "{{ db_uid }}"
       group: "{{ db_user }}"
-      shell: /sbin/nologin
+      shell: /bin/bash
       create_home: yes
       state: present
 
