@@ -23,6 +23,14 @@
   ],
   "provisioners": [
     {
+    "type": "shell",
+    "inline": [
+      "sudo yum clean all",
+      "sudo yum install -y git",
+      "sudo yum install -y ansible-core"
+    ]
+  },
+    {
       "type": "ansible",
       "user": "cloud-user",
       "playbook_file": "/home/adev4769/yugabytedb-cloud-automation-gcp/packers/yba_controller_node/yba_post_config_2024.yaml",
