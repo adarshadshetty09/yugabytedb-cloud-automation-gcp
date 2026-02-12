@@ -109,3 +109,65 @@ yugabyte_clusters_project1 = {
 
 
 
+
+
+
+
+
+
+
+yba-db-node_scale = {
+  "yba-db-node_scale" = {
+    enable_external_ip                 = false
+    enable_shielded_vm                 = true
+    machine_name                       = "yb-db-node-add"
+    instance_count                     = 1
+    attached_disks_per_instance        = 3
+    enable_yugabyte_disk               = false
+    enable_yugabyte_disk_snapshot_attach = false   
+    enable_data1_disk                  = true
+    enable_shared_disk                 = true
+    enable_wal1_disk                   = true
+    enable_boot_disk_snapshot_attach   = true
+    enable_data1_disk_snapshot_attach  = false
+    enable_wal1_disk_snapshot_attach   = false
+    enable_shared_disk_snapshot_attach = false
+    attached_persistent_disk_sizes     = [10, 10, 10]
+    machine_zone                       = ["us-central1-a", "us-central1-c"]
+    policy_name                        = "db-snapshot-policy-scale"
+    utc_time                           = "00:00"
+    retention_days                     = 7
+    storage_locations                  = "us"
+    enable_boot_disk                   = true
+    boot_disk_size                     = 20
+    boot_disk_type                     = "pd-balanced"
+    instance_with_bootdisk_snapshot    = false
+    snapshot_selflink                  = null
+    instance_image_selflink            = "projects/project-af758472-c239-4625-869/global/images/yugabyte-db-node-packer-2024-1770821209"
+    kms_key_self_link                  = null
+    labels                             = {}
+    internal_ip                        = ["10.0.0.15"]
+    region                             = "us-central1"
+    machine_type                       = "n2-standard-2"
+    vm_deletion_protection             = false
+    network_tags                       = ["yugabyte","allow-ssh"]
+    network                            = "vpc-yugabyte-terraform-cluster"
+    subnetwork                         = "yugabyte-sub-1"
+    service_account = {
+      email  = "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com"
+      scopes = ["cloud-platform"]
+    }
+    metadata = {}
+    local_disk_count = 0
+    shielded_instance_config = {
+      enable_secure_boot          = true
+      enable_vtpm                 = true
+      enable_integrity_monitoring = true
+    }
+  }
+}
+
+
+
+
+
