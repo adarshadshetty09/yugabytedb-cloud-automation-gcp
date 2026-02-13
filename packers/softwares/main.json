@@ -20,7 +20,7 @@
       "image_encryption_key" :{
         "kmsKeyName":"projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/yba-keyring/cryptoKeys/yba-key"
       },
-      "image_name": "yugabyte-packer-controller-2024-{{timestamp}}",
+      "image_name": "softwares-packer-jenkins-{{timestamp}}",
       "image_storage_locations": ["us-central1"]
     }
   ],
