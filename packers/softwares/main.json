@@ -1,0 +1,58 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "project-af758472-c239-4625-869",
+      "zone": "us-central1-a",
+      "machine_type": "n2d-standard-4",
+      "source_image_family": "rhel-9",
+      "source_image_project_id": "rhel-cloud",
+      "subnetwork": "yugabyte-sub-1",
+      "tags": ["allow-ssh", "yugabyte"],
+      "omit_external_ip": false,
+      "use_internal_ip": false,
+      "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
+      "ssh_username": "cloud-user",
+      "ssh_timeout": "15m",
+      "metadata": {
+        "enable-oslogin": "FALSE"
+      },
+      "image_encryption_key" :{
+        "kmsKeyName":"projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/yba-keyring/cryptoKeys/yba-key"
+      },
+      "image_name": "yugabyte-packer-controller-2024-{{timestamp}}",
+      "image_storage_locations": ["us-central1"]
+    }
+  ],
+  "provisioners": [
+    {
+    "type": "shell",
+    "inline": [
+      "sudo yum clean all",
+      "sudo yum install -y git",
+      "sudo yum install -y wget ",
+      "sudo yum install -y ansible-core",
+      "sudo yum install -y yum-utils",
+      "sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo",
+      "sudo yum -y install packer",
+      "packer plugins install github.com/hashicorp/googlecompute",
+      "packer plugins install github.com/hashicorp/ansible",
+      "sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/rpm-stable/jenkins.repo -y",
+      "sudo yum upgrade y",
+      "sudo yum install fontconfig java-21-openjdk -y",
+      "sudo yum install jenkins -y",
+      "sudo systemctl daemon-reload",
+      "sudo systemctl enable jenkins",
+      "sudo systemctl start jenkins",
+      "sudo systemctl status jenkins"  
+    ]
+}
+]
+}
+
+
+
+
+
+
+
