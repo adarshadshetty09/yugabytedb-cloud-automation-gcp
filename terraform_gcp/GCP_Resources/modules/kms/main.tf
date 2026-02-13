@@ -9,9 +9,9 @@ resource "google_kms_crypto_key" "crypto_key" {
   key_ring        = google_kms_key_ring.keyring.id
   rotation_period = var.rotation_period
 
-#   lifecycle {
-#     prevent_destroy = true   # ✅ production safety
-#   }
+  lifecycle {
+    prevent_destroy = true   # ✅ production safety
+  }
 }
 
 resource "google_kms_crypto_key_iam_member" "crypto_key_member" {
