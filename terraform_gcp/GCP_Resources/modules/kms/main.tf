@@ -15,7 +15,7 @@ resource "google_kms_crypto_key" "crypto_key" {
   rotation_period = var.rotation_period
 
   lifecycle {
-    prevent_destroy = true
+    prevent_destroy = false
   }
 }
 
