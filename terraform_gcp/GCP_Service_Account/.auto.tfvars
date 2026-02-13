@@ -7,7 +7,10 @@ service_accounts = {
     roles = [
       "roles/compute.instanceAdmin.v1",
       "roles/iam.serviceAccountUser",
-      "roles/iap.tunnelResourceAccessor"
+      "roles/iap.tunnelResourceAccessor",
+
+      # ✅ REQUIRED FOR TERRAFORM KMS
+      "roles/cloudkms.admin"
     ]
   }
 }
