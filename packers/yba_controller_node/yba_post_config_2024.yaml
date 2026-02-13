@@ -10,7 +10,7 @@
     installer_tar: "yba_installer_full-{{ installer_version }}-linux-x86_64.tar.gz"
     installer_dir: "/home/ybaadmin/yba_installer_full-{{ installer_version }}"
     installer_src: "/home/ybaadmin/{{ installer_tar  }}"
-    gcs_object: "gs://yba-backup-bucket-001/{{ installer_tar  }}"
+    gcs_object: "gs://yba-bucket-001/{{ installer_tar  }}"
     yba_dir: "/opt/yba-ctl"
  
   tasks:
