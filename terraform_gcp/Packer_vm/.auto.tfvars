@@ -9,7 +9,7 @@ gcp_vm = {
     zone_name                = "us-central1-a"
     network_name             = "vpc-yugabyte-terraform-cluster"
     subnet_work_name         = "yugabyte-sub-1"
-    instance_image_self_link = "projects/project-af758472-c239-4625-869/global/images/softwares-packer-jenkins-1771165980" #"projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20260114"
+    instance_image_self_link = "projects/project-af758472-c239-4625-869/global/images/softwares-packer-jenkins-1771167016"#"projects/ubuntu-os-cloud/global/images/ubuntu-2204-jammy-v20260114"
 
     instance_labels = {
       env  = "test"
