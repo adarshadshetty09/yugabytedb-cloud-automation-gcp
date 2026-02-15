@@ -22,7 +22,9 @@ gcp_vm = {
   "test",
   "learning",
   "adarshadshetty",
-  "rypae099"
+  "rypae099",
+  "jenkins",
+  "softwares"
 ]
 
     boot_disk_tags = ["boot","ssd","primary"]  

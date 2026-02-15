@@ -65,5 +65,14 @@ firewall_rules = {
     source_ranges = ["0.0.0.0/0"]
     target_tags   = ["yugabyte"]
   }
+
+  jenkins-port = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["8080"]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["jenkins","softwares"]
+  }
 }
 
