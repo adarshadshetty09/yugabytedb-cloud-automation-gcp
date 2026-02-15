@@ -18,7 +18,7 @@
         "enable-oslogin": "FALSE"
       },
       "image_encryption_key" :{
-        "kmsKeyName":"projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/yba-keyring/cryptoKeys/yba-key"
+        "kmsKeyName":"projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/global-key-ring-en/cryptoKeys/global-kms-key-en"
       },
       "image_name": "softwares-packer-jenkins-{{timestamp}}",
       "image_storage_locations": ["us-central1"]

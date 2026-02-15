@@ -24,11 +24,3 @@ variable "gcs_buckets_yugabyte" {
 
 
 
-variable "kms_keys" {
-  description = "Map of KMS keys"
-  type = map(object({
-    location              = string
-    keyring_name          = string
-    service_account_email = string
-  }))
-}

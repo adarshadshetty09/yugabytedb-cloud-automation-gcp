@@ -21,12 +21,5 @@ gcs_buckets_yugabyte = {
 
 
 
-kms_keys = {
-  "yba-key" = {
-    location              = "us-central1"
-    keyring_name          = "yba-keyring"
-    service_account_email = "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com"
-  }
-}
 
 
