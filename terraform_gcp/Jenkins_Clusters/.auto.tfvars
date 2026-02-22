@@ -36,7 +36,7 @@ gcp_vm = {
     allow_stopping_for_update_value = true
     deletion_protection  = false
 
-    boot_disk_size = 10
+    boot_disk_size = 30
     boot_disk_type = "pd-balanced"
   },
   vm2 = {
@@ -71,7 +71,7 @@ gcp_vm = {
     allow_stopping_for_update_value = true
     deletion_protection  = false
 
-    boot_disk_size = 10
+    boot_disk_size = 30
     boot_disk_type = "pd-balanced"
   },
   vm3 = {
@@ -106,7 +106,7 @@ gcp_vm = {
     allow_stopping_for_update_value = true
     deletion_protection  = false
 
-    boot_disk_size = 10
+    boot_disk_size = 30
     boot_disk_type = "pd-balanced"
   }
 }
