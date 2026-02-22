@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                                      
-Operation completed over 1 objects/1.8 GiB.                            
+/ [1 files][  1.8 GiB/  1.8 GiB]                                    
+Operation completed over 1 objects/1.8 GiB.                          
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -77,6 +77,7 @@ projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/yba-keyri
 ```
 
 ```
+
 User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/GCP_Resources (main)
 $ terraform import 'module.kms_keys["yba-db-key"].google_kms_key_ring.keyring' \
 projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/yba-keyring-prod
@@ -94,4 +95,44 @@ your Terraform state and will henceforth be managed by Terraform.
 User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/GCP_Resources (main)
 $
 
+```
+
+
+
+
+
+```
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/Jenkins_Clusters (main)
+$ gcloud compute instances list
+NAME: jenkins-master
+ZONE: us-central1-a
+MACHINE_TYPE: n2-standard-2
+PREEMPTIBLE:
+INTERNAL_IP: 10.0.0.8
+EXTERNAL_IP: 34.61.74.111
+STATUS: RUNNING
+
+NAME: jenkins-slave-1
+ZONE: us-central1-a
+MACHINE_TYPE: n2-standard-2
+PREEMPTIBLE:
+INTERNAL_IP: 10.0.0.6
+EXTERNAL_IP: 34.42.33.190
+STATUS: RUNNING
+
+NAME: jenkins-slave-2
+ZONE: us-central1-a
+MACHINE_TYPE: n2-standard-2
+PREEMPTIBLE:
+INTERNAL_IP: 10.0.0.7
+EXTERNAL_IP: 34.170.30.143
+STATUS: RUNNING
+
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/Jenkins_Clusters (main)
+
+```
+
+
+```
+gcloud compute instances list
 ```

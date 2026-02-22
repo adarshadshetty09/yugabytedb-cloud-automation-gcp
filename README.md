@@ -2,7 +2,6 @@
 
 End-to-end automation of YugabyteDB installation, configuration, cluster setup, and query execution using Terraform, Ansible, and Packer on GCP.
 
-
 ## Repo Structure
 
 ```
@@ -50,5 +49,14 @@ yugabytedb-end-to-end-automation/
 │
 ├── README.md
 └── LICENSE
+
+```
+
+
+### OS Login via SSH-KEY
+
+```
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/Jenkins_Clusters (main)
+$ gcloud compute ssh jenkins-master --zone us-central1-a
 
 ```
