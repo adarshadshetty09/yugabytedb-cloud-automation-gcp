@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                                  
-Operation completed over 1 objects/1.8 GiB.                        
+/ [1 files][  1.8 GiB/  1.8 GiB]                                
+Operation completed over 1 objects/1.8 GiB.                      
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -133,6 +133,8 @@ gcloud compute instances list
 ```
 
 
+
+### Login to the Server / SSH to the Server
 
 ```
 
