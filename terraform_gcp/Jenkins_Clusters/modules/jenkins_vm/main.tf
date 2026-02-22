@@ -33,7 +33,7 @@ resource "google_compute_instance" "default" {
     access_config {}
   }
 
-  # ✅ ENTERPRISE SSH (NO USERNAME / NO KEY)
+  #  ENTERPRISE SSH (NO USERNAME / NO KEY)
   metadata = {
     enable-oslogin = "TRUE"
   }

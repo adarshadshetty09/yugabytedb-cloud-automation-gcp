@@ -189,7 +189,13 @@ resource "google_compute_instance" "gce_vm" {
     }
   }
 
-  metadata = var.metadata
+  # metadata = var.metadata
+
+
+  #  ENTERPRISE SSH (NO USERNAME / NO KEY)
+  metadata = {
+    enable-oslogin = "TRUE"
+  }
 
   dynamic "scratch_disk" {
     for_each = range(var.local_disk_count)
