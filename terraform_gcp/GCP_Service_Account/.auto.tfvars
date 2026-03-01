@@ -4,13 +4,14 @@ service_accounts = {
   yugabyte = {
     account_id   = "yugabyte"
     display_name = "Yugabyte Central Service Account"
-    roles = [
-      "roles/compute.instanceAdmin.v1",
-      "roles/iam.serviceAccountUser",
-      "roles/iap.tunnelResourceAccessor",
+roles = [
+  "roles/compute.instanceAdmin.v1",
+  "roles/iam.serviceAccountUser",
+  "roles/iap.tunnelResourceAccessor",
+  "roles/cloudkms.admin",
 
-      # ✅ REQUIRED FOR TERRAFORM KMS
-      "roles/cloudkms.admin"
-    ]
+  # ✅ ADD THIS FOR GCS UPLOAD
+  "roles/storage.objectAdmin"
+]
   }
 }

@@ -17,7 +17,7 @@ variable "project_id" {
 variable "kms_key_self_link" {
   description = "The full resource path of the KMS crypto key to encrypt disks (CMEK)"
   type        = string
-  default     = null
+  # default     = null
 }
 
 # GCP Region
@@ -25,6 +25,8 @@ variable "region" {
   description = "Default region for GCP resources."
   type        = string
 }
+
+
 
 ##############################################################
 # Yugabyte Cluster Project 1 — FULL SCHEMA
@@ -67,7 +69,7 @@ variable "yugabyte_clusters_project1" {
       instance_with_bootdisk_snapshot = bool
       snapshot_selflink               = string
       instance_image_selflink         = string
-      kms_key_self_link               = string
+      # kms_key_self_link               = string   // If you declare in project level
 
       labels                 = map(string)
       internal_ip            = list(string)
@@ -137,13 +139,13 @@ variable "yba-db-node_scale" {
       instance_with_bootdisk_snapshot = bool
       snapshot_selflink               = string
       instance_image_selflink         = string
-      kms_key_self_link               = string
+      # kms_key_self_link               = string   // If you declare in project level
 
       labels                 = map(string)
       internal_ip            = list(string)
       region                 = string
       machine_type           = string
-      vm_deletion_protection = bool
+      vm_deletion_protection = bool 
       network_tags           = list(string)
       network                = string
       subnetwork             = string

@@ -54,7 +54,8 @@ module "yugabyte-cluster-project-1" {
   instance_image_selflink         = each.value.instance_image_selflink
 
   # KMS + Labels
-  kms_key_self_link = each.value.kms_key_self_link
+  # kms_key_self_link = each.value.kms_key_self_link   // If declare in project level
+  kms_key_self_link = var.kms_key_self_link
   labels            = each.value.labels
 
   # Network
@@ -130,7 +131,8 @@ module "yugabyte-cluster-project-yba-db-node_scale" {
   instance_image_selflink         = each.value.instance_image_selflink
 
   # KMS + Labels
-  kms_key_self_link = each.value.kms_key_self_link
+  # kms_key_self_link = each.value.kms_key_self_link
+  kms_key_self_link = var.kms_key_self_link
   labels            = each.value.labels
 
   # Network
