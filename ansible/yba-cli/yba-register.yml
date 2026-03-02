@@ -1,0 +1,15 @@
+- name: Check if YBA already registered
+  stat:
+    path: ~/.yba-cli/.yba-cli.yaml
+  register: yba_config
+
+- name: Register YBA CLI if not registered
+  shell: >
+    {{ yba_bin }} register
+    -f
+    -n "{{ yba_admin_name }}"
+    -e "{{ yba_admin_email }}"
+    -p "{{ yba_admin_password }}"
+    --environment "{{ yba_environment }}"
+    -H "{{ yba_host }}"
+  when: not yba_config.stat.exists
