@@ -1,0 +1,48 @@
+---
+- name: Add OnPrem Nodes (Idempotent)
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    yba_host: "https://34.59.95.113:443"
+
+    provider_name: "gcp-provider"
+    instance_type: "db-node-type"
+    region_name: "south-asia"
+    zone_name: "mum1"
+
+    nodes:
+      - { ip: "10.0.0.12", name: "db-pr-node-1" }
+      - { ip: "10.0.0.13", name: "db-pr-node-2" }
+      - { ip: "10.0.0.14", name: "db-pr-node-3" }
+
+  tasks:
+
+    - name: Get existing nodes
+      command: >
+        yba provider onprem node list
+        --name {{ provider_name }}
+        -H {{ yba_host }}
+        --insecure
+      register: existing_nodes
+      changed_when: false
+      failed_when: false
+
+    - name: Add nodes if not already present
+      command: >
+        yba provider onprem node add
+        --name {{ provider_name }}
+        --ip {{ item.ip }}
+        --instance-type {{ instance_type }}
+        --region {{ region_name }}
+        --zone {{ zone_name }}
+        --node-name {{ item.name }}
+        -H {{ yba_host }}
+        --insecure
+      loop: "{{ nodes }}"
+      when: item.ip not in existing_nodes.stdout
+      register: node_add
+
+    - name: Show completion message
+      debug:
+        msg: "All required nodes are configured."
