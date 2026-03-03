@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    yba_host: "https://34.59.95.113:443"
+    yba_host: "https://34.132.41.255:443"
     provider_name: "gcp-provider"
     region_name: "south-asia"
     zone_name: "mum1"

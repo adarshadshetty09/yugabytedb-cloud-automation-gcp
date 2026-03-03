@@ -5,7 +5,7 @@
   gather_facts: false
 
   vars:
-    yba_host: "https://34.59.95.113:443"
+    yba_host: "https://34.132.41.255:443"
     yba_admin_name: "admin"
     yba_admin_email: "admin@gmail.com"
     yba_admin_password: "Admin123$$$"
