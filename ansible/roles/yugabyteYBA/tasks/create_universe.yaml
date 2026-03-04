@@ -1,0 +1,74 @@
+---
+- name: Create YBA Universe (Idempotent)
+  hosts: localhost
+  gather_facts: false
+
+  vars:
+    yba_host: "https://34.132.41.255:443"
+
+    universe_name: "universe-pr"
+    yb_version: "2024.2.4.0-b89"
+    provider_name: "gcp-provider"
+
+    replication_factor: 3
+    num_nodes: 3
+    region_name: "south-asia"
+    instance_type: "db-node-type"
+
+    master_gflags: '{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}'
+    tserver_gflags: '{"primary":{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}}'
+
+  tasks:
+
+    - name: Check if universe already exists
+      command: >
+        yba universe list
+        -H {{ yba_host }}
+        --insecure
+      register: universe_list
+      changed_when: false
+      failed_when: false
+
+    - name: Set universe_exists flag
+      set_fact:
+        universe_exists: "{{ universe_name in universe_list.stdout }}"
+
+    - name: Create universe if not exists
+      command: >
+        yba universe create
+        --name {{ universe_name }}
+        --yb-db-version {{ yb_version }}
+        --provider-code onprem
+        --provider-name {{ provider_name }}
+        --replication-factor {{ replication_factor }}
+        --num-nodes {{ num_nodes }}
+        --regions {{ region_name }}
+        --instance-type {{ instance_type }}
+        --assign-public-ip=false
+        --enable-ysql=true
+        --enable-ycql=false
+        --enable-node-to-node-encrypt=false
+        --enable-client-to-node-encrypt=false
+        --master-gflags '{{ master_gflags }}'
+        --tserver-gflags '{{ tserver_gflags }}'
+        -H {{ yba_host }}
+        --insecure
+      when: not universe_exists
+      register: universe_create
+
+    - name: Wait until universe is Ready
+      command: >
+        yba universe describe
+        --name {{ universe_name }}
+        -H {{ yba_host }}
+        --insecure
+      register: universe_status
+      until: "'Ready' in universe_status.stdout"
+      retries: 30
+      delay: 30
+      changed_when: false
+      when: not universe_exists
+
+    - name: Show completion message
+      debug:
+        msg: "Universe {{ universe_name }} is ready."

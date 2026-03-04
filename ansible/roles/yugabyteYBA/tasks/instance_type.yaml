@@ -1,0 +1,49 @@
+---
+- name: Add OnPrem Instance Type (Idempotent)
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  vars:
+    yba_host: "https://34.132.41.255:443"
+    provider_name: "gcp-provider"
+    instance_type_name: "db-node-type"
+    num_cores: 2
+    mem_size: 10
+    mount_point: "/mnt/yba-data"
+    volume_size: 10
+    volume_type: "SSD"
+
+  tasks:
+
+    - name: Check existing instance types
+      command: >
+        yba provider onprem instance-type list
+        --name {{ provider_name }}
+        -H {{ yba_host }}
+        --insecure
+      register: instance_type_list
+      changed_when: false
+      failed_when: false
+
+    - name: Set instance_type_exists flag
+      set_fact:
+        instance_type_exists: "{{ instance_type_list.stdout_lines | select('search', instance_type_name) | list | length > 0 }}"
+
+    - name: Add instance type if not exists
+      command: >
+        yba provider onprem instance-type add
+        --name {{ provider_name }}
+        --instance-type-name {{ instance_type_name }}
+        --num-cores {{ num_cores }}
+        --mem-size {{ mem_size }}
+        --volume mount-points={{ mount_point }}::size={{ volume_size }}::type={{ volume_type }}
+        -H {{ yba_host }}
+        --insecure
+      when: not instance_type_exists
+      register: instance_type_add
+      no_log: true
+
+    - name: Show status
+      debug:
+        msg: "Instance type {{ instance_type_name }} is configured."

@@ -1,0 +1,44 @@
+---
+- name: Create YBA OnPrem Provider (Idempotent)
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  vars:
+    yba_host: "https://34.132.41.255:443"
+    provider_name: "gcp-provider"
+    region_name: "south-asia"
+    zone_name: "mum1"
+    ssh_user: "ybaadmin"
+    ssh_key_name: "ybaadmin"
+    ssh_key_path: "/home/adev4769_gmail_com/id_rsa"
+
+  tasks:
+
+    - name: Check if provider already exists
+      command: >
+        yba provider list
+        -H {{ yba_host }}
+        --insecure
+      register: provider_list
+      changed_when: false
+      failed_when: false
+
+    - name: Create provider if not exists
+      command: >
+        yba provider onprem create
+        --name {{ provider_name }}
+        --region region-name={{ region_name }}
+        --zone zone-name={{ zone_name }}::region-name={{ region_name }}
+        --ssh-user {{ ssh_user }}
+        --ssh-keypair-name {{ ssh_key_name }}
+        --ssh-keypair-file-path {{ ssh_key_path }}
+        -H {{ yba_host }}
+        --insecure
+      when: provider_list.stdout_lines | select('search', provider_name) | list | length == 0
+      register: provider_create
+      no_log: true
+
+    - name: Show status
+      debug:
+        msg: "Provider {{ provider_name }} is configured and ready."
