@@ -1,0 +1,6 @@
+---
+- import_tasks: yba-register.yml
+- import_tasks: yba_provider_onprem.yaml
+- import_tasks: instance_type.yaml
+- import_tasks: add_nodes.yaml
+- import_tasks: create_universe.yaml
