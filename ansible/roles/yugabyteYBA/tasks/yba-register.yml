@@ -1,58 +1,42 @@
----
-- name: YBA CLI Registration (Production Idempotent)
-  hosts: localhost
-  become: false
-  gather_facts: false
+- name: Check if already authenticated
+  command: >
+    yba auth status
+    -H {{ yba_host }}
+    --insecure
+  register: auth_status
+  failed_when: false
+  changed_when: false
 
-  vars:
-    yba_host: "https://34.132.41.255:443"
-    yba_admin_name: "admin"
-    yba_admin_email: "admin@gmail.com"
-    yba_admin_password: "Admin123$$$"
-    yba_environment: "dev"
-    yba_token_file: "{{ lookup('env','HOME') }}/.yba-api-token"
+- name: Debug auth status
+  debug:
+    msg: "Already authenticated to YBA"
+  when: auth_status.rc == 0
 
-  tasks:
+- name: Register YBA if not authenticated
+  command: >
+    yba register
+    -f
+    -n {{ yba_admin_name }}
+    -e {{ yba_admin_email }}
+    -p {{ yba_admin_password }}
+    --environment {{ yba_environment }}
+    -H {{ yba_host }}
+    --insecure
+    --show-api-token
+  register: yba_register_output
+  when: auth_status.rc != 0
+  no_log: true
+  failed_when: >
+    yba_register_output.rc != 0 and
+    "Cannot register multiple accounts" not in yba_register_output.stderr
 
-    - name: Check if already authenticated
-      command: >
-        yba auth status
-        -H {{ yba_host }}
-        --insecure
-      register: auth_status
-      failed_when: false
-      changed_when: false
+- name: Save API Token (only when newly registered)
+  copy:
+    content: "{{ yba_register_output.stdout }}"
+    dest: "{{ yba_token_file }}"
+    mode: '0600'
+  when: auth_status.rc != 0
 
-    - name: Debug auth status
-      debug:
-        msg: "Already authenticated to YBA"
-      when: auth_status.rc == 0
-
-    - name: Register YBA if not authenticated
-      command: >
-        yba register
-        -f
-        -n {{ yba_admin_name }}
-        -e {{ yba_admin_email }}
-        -p {{ yba_admin_password }}
-        --environment {{ yba_environment }}
-        -H {{ yba_host }}
-        --insecure
-        --show-api-token
-      register: yba_register_output
-      when: auth_status.rc != 0
-      no_log: true
-      failed_when: >
-        yba_register_output.rc != 0 and
-        "Cannot register multiple accounts" not in yba_register_output.stderr
-
-    - name: Save API Token (only when newly registered)
-      copy:
-        content: "{{ yba_register_output.stdout }}"
-        dest: "{{ yba_token_file }}"
-        mode: '0600'
-      when: auth_status.rc != 0
-
-    - name: Final Status
-      debug:
-        msg: "YBA CLI is authenticated and ready."
+- name: Final Status
+  debug:
+    msg: "YBA CLI is authenticated and ready."

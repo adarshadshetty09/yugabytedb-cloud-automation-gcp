@@ -1,2 +1,25 @@
 ---
 # vars file for yugabyteYBA
+yba_host: "https://34.132.41.255:443"
+yba_admin_name: "admin"
+yba_admin_email: "admin@gmail.com"
+yba_admin_password: "Admin123$$$"
+yba_environment: "dev"
+yba_token_file: "{{ lookup('env','HOME') }}/.yba-api-token"
+provider_name: "gcp-provider"
+region_name: "south-asia"
+zone_name: "mum1"
+ssh_user: "ybaadmin"
+ssh_key_name: "ybaadmin"
+ssh_key_path: "/home/adev4769_gmail_com/id_rsa"
+instance_type_name: "db-node-type"
+num_cores: 2
+mem_size: 10
+mount_point: "/mnt/yba-data"
+volume_size: 10
+volume_type: "SSD"
+instance_type: "db-node-type"
+nodes:
+  - { ip: "10.0.0.12", name: "db-pr-node-1" }
+  - { ip: "10.0.0.13", name: "db-pr-node-2" }
+  - { ip: "10.0.0.14", name: "db-pr-node-3" }

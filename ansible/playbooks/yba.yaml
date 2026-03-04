@@ -1,0 +1,7 @@
+---
+- name: Setup Yugabyte Universe
+  hosts: localhost
+  gather_facts: false
+
+  roles:
+    - yugabyteYBA
