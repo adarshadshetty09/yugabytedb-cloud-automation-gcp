@@ -23,3 +23,9 @@ nodes:
   - { ip: "10.0.0.12", name: "db-pr-node-1" }
   - { ip: "10.0.0.13", name: "db-pr-node-2" }
   - { ip: "10.0.0.14", name: "db-pr-node-3" }
+universe_name: "universe-pr"
+yb_version: "2024.2.4.0-b89"
+replication_factor: 3
+num_nodes: 3
+master_gflags: '{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}'
+server_gflags: '{"primary":{"fs_wal_dirs":"/mnt/yba-wal","log_dir":"/mnt/yba-shared","tmp_dir":"/mnt/yba-data/tmp"}}'
