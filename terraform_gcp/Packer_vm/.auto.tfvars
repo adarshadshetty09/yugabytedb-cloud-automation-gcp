@@ -3,7 +3,7 @@ region     = "us-central1"
 
 
 gcp_vm = {
-  vm1 = {
+  packer = {
     instance_name            = "packer"
     machine_type_name        = "n2-standard-2"
     zone_name                = "us-central1-a"

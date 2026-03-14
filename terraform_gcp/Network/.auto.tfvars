@@ -60,7 +60,8 @@ firewall_rules = {
   "9300",
   "9400",
   "9042",
-  "54422"
+  "54422",
+  "15433"
 ]
     source_ranges = ["0.0.0.0/0"]
     target_tags   = ["yugabyte"]
