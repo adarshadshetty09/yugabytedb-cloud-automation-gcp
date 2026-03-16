@@ -26,10 +26,10 @@ resource "google_kms_crypto_key_iam_member" "yugabyte_sa" {
   member        = "serviceAccount:${var.service_account_email}"
 }
 
-# #  REQUIRED for Packer / Compute Engine encryption
-# resource "google_kms_crypto_key_iam_member" "compute_engine_sa" {
-#   crypto_key_id = google_kms_crypto_key.crypto_key.id
-#   role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
+#  REQUIRED for Packer / Compute Engine encryption
+resource "google_kms_crypto_key_iam_member" "compute_engine_sa" {
+  crypto_key_id = google_kms_crypto_key.crypto_key.id
+  role          = "roles/cloudkms.cryptoKeyEncrypterDecrypter"
 
-#   member = "serviceAccount:service-${data.google_project.project.number}@compute-system.iam.gserviceaccount.com"
-# }
+  member = "serviceAccount:service-${data.google_project.project.number}@compute-system.iam.gserviceaccount.com"
+}
