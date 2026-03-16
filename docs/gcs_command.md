@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                                
-Operation completed over 1 objects/1.8 GiB.                      
+/ [1 files][  1.8 GiB/  1.8 GiB]                              
+Operation completed over 1 objects/1.8 GiB.                    
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -132,12 +132,37 @@ User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/Jen
 gcloud compute instances list
 ```
 
-
-
 ### Login to the Server / SSH to the Server
 
 ```
 
 User@DESKTOP-KM01E29 MINGW64 ~
 $ gcloud compute ssh jenkins-master --zone us-central1-a
+```
+
+
+
+
+
+### Normal Login
+
+
+```
+
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/GCP_Service_Account (main)
+$ gcloud auth application-default login
+Your browser has been opened to visit:
+
+    https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=764086051850-6qr4p6gpi6hn506pt8ejuq83di341hur.apps.googleusercontent.com&redirect_uri=http%3A%2F%2Flocalhost%3A8085%2F&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login&state=ys8WKG8pR4QnR4QcmvuiK0AtAFNG9B&access_type=offline&code_challenge=hdJ7d1ErgOFHOK20Umui8QMPgytPgpil61K01TmZxpM&code_challenge_method=S256
+
+
+Credentials saved to file: [C:\Users\User\AppData\Roaming\gcloud\application_default_credentials.json]
+
+These credentials will be used by any library that requests Application Default Credentials (ADC).
+
+Quota project "project-7b6bf38a-3ad2-4d2b-bdb" was added to ADC which can be used by Google client libraries for billing and quota. Note that some services may still bill the project owning the resource.
+
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/GCP_Service_Account (main)
+$ terraform apply  --auto-approve
+
 ```

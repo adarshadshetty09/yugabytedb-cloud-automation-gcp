@@ -43,7 +43,7 @@ network_interface {
   metadata_startup_script = "echo hi > /test.txt"
 
 service_account {
-  email  = "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com"
+  email  = "yugabyte@project-7b6bf38a-3ad2-4d2b-bdb.iam.gserviceaccount.com"
   scopes = ["cloud-platform"]
 }
 

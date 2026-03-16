@@ -1,5 +1,5 @@
-project_id         = "project-af758472-c239-4625-869"
-network_project_id = "project-af758472-c239-4625-869"
+project_id         = "project-7b6bf38a-3ad2-4d2b-bdb"
+network_project_id = "project-7b6bf38a-3ad2-4d2b-bdb"
 
 region = "us-central1"
 

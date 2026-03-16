@@ -2,7 +2,7 @@
   "builders": [
     {
       "type": "googlecompute",
-      "project_id": "project-af758472-c239-4625-869",
+      "project_id": "project-7b6bf38a-3ad2-4d2b-bdb",
       "zone": "us-central1-a",
       "machine_type": "n2d-standard-4",
       "source_image_family": "rhel-9",
@@ -11,14 +11,14 @@
       "tags": ["allow-ssh", "yugabyte"],
       "omit_external_ip": false,
       "use_internal_ip": false,
-      "service_account_email": "yugabyte@project-af758472-c239-4625-869.iam.gserviceaccount.com",
-      "ssh_username": "cloud-user",
+      "service_account_email": "yugabyte@project-7b6bf38a-3ad2-4d2b-bdb.iam.gserviceaccount.com",
+      "ssh_username": "yugabyte",
       "ssh_timeout": "15m",
       "metadata": {
         "enable-oslogin": "FALSE"
       },
       "image_encryption_key" :{
-        "kmsKeyName":"projects/project-af758472-c239-4625-869/locations/us-central1/keyRings/global-key-ring-en/cryptoKeys/global-kms-key-en"
+        "kmsKeyName":"projects/project-7b6bf38a-3ad2-4d2b-bdb/locations/us-central1/keyRings/global-key-ring-en/cryptoKeys/global-kms-key-en"
       },
       "image_name": "softwares-packer-jenkins-{{timestamp}}",
       "image_storage_locations": ["us-central1"]
