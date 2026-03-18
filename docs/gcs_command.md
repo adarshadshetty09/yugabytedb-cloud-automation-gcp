@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                              
-Operation completed over 1 objects/1.8 GiB.                    
+/ [1 files][  1.8 GiB/  1.8 GiB]                            
+Operation completed over 1 objects/1.8 GiB.                  
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -140,12 +140,7 @@ User@DESKTOP-KM01E29 MINGW64 ~
 $ gcloud compute ssh jenkins-master --zone us-central1-a
 ```
 
-
-
-
-
 ### Normal Login
-
 
 ```
 
@@ -165,4 +160,13 @@ Quota project "project-7b6bf38a-3ad2-4d2b-bdb" was added to ADC which can be use
 User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/GCP_Service_Account (main)
 $ terraform apply  --auto-approve
 
+```
+
+
+
+
+```
+User@DESKTOP-KM01E29 MINGW64 ~/yugabytedb-cloud-automation-gcp/terraform_gcp/Network (main)
+$ gcloud services enable iap.googleapis.com
+Operation "operations/acat.p2-78743297843-581bcbfa-1d7f-4633-85bb-988b6422c345" finished successfully.
 ```
