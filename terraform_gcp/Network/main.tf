@@ -38,13 +38,13 @@ module "firewall" {
   firewall_rules     = var.firewall_rules
 }
 
-module "vpn" {
-  source     = "./modules/vpn"
+# module "vpn" {
+#   source     = "./modules/vpn"
 
-  project_id = var.project_id
-  region     = var.region
-  network    = module.vpc.vpc_id
+#   project_id = var.project_id
+#   region     = var.region
+#   network    = module.vpc.vpc_id
 
-  peer_ip       = var.peer_ip
-  shared_secret = var.shared_secret
-}
+#   peer_ip       = var.peer_ip
+#   shared_secret = var.shared_secret
+# }

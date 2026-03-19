@@ -19,8 +19,9 @@ firewall_rules = {
     priority      = 65534
     protocol      = "all"
     ports         = []
-    source_ranges = ["10.0.0.0/24"]
-    target_tags   = []
+    # source_ranges = ["10.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["yugabyte"]
   }
 
   allow-ssh = {
@@ -28,7 +29,8 @@ firewall_rules = {
     priority      = 1000
     protocol      = "tcp"
     ports         = ["22"]
-    source_ranges = ["10.0.0.0/24"]
+    # source_ranges = ["10.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
     target_tags   = ["allow-ssh"]
   }
 
@@ -37,7 +39,8 @@ firewall_rules = {
     priority      = 1000
     protocol      = "tcp"
     ports         = ["7000", "9000", "9042", "5433","443"]
-    source_ranges = ["10.0.0.0/24"]
+    # source_ranges = ["10.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
     target_tags   = ["yugabyte"]
   }
 
@@ -63,7 +66,8 @@ firewall_rules = {
   "54422",
   "15433"
 ]
-    source_ranges = ["10.0.0.0/24"]
+    # source_ranges = ["10.0.0.0/24"]
+    source_ranges = ["0.0.0.0/0"]
     target_tags   = ["yugabyte"]
   }
 
@@ -76,17 +80,17 @@ firewall_rules = {
     target_tags   = ["jenkins","softwares"]
   }
 
-  allow-iap-ssh = {
-  direction     = "INGRESS"
-  priority      = 1000
-  protocol      = "tcp"
-  ports         = ["22"]
-  source_ranges = ["35.235.240.0/20"]  # Google IAP range
-  target_tags   = ["yugabyte"]
+#   allow-iap-ssh = {
+#   direction     = "INGRESS"
+#   priority      = 1000
+#   protocol      = "tcp"
+#   ports         = ["22"]
+#   source_ranges = ["35.235.240.0/20"]  # Google IAP range
+#   target_tags   = ["yugabyte"]
+# }
 }
-}
 
 
 
-peer_ip       = "223.237.161.59"
-shared_secret = "test123"   # (for now, ok for learning)
+# peer_ip       = "223.237.162.59"
+# shared_secret = "test123"   # (for now, ok for learning)
