@@ -80,6 +80,17 @@ firewall_rules = {
     target_tags   = ["jenkins","softwares"]
   }
 
+  monitoring-port = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["3000","9090","9200","9115"]
+    source_ranges = ["10.0.0.0/24"]
+    target_tags   = ["jenkins","softwares"]
+  }
+
+  
+
 #   allow-iap-ssh = {
 #   direction     = "INGRESS"
 #   priority      = 1000
