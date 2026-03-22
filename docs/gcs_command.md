@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                          
-Operation completed over 1 objects/1.8 GiB.                
+/ [1 files][  1.8 GiB/  1.8 GiB]                      
+Operation completed over 1 objects/1.8 GiB.            
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -168,11 +168,8 @@ $ gcloud services enable iap.googleapis.com
 Operation "operations/acat.p2-78743297843-581bcbfa-1d7f-4633-85bb-988b6422c345" finished successfully.
 ```
 
-
-
-
 ```
-icrosoft Windows [Version 10.0.26200.8037]
+Microsoft Windows [Version 10.0.26200.8037]
 (c) Microsoft Corporation. All rights reserved.
 
 C:\Users\User>curl ifconfig.me
@@ -184,3 +181,240 @@ C:\Users\User>curl ipv4.icanhazip.com
 
 C:\Users\User>
 ```
+
+```
+[shettyanisha2004@ybdb1 ~]$ ss -tulnp
+Netid            State              Recv-Q             Send-Q                         Local Address:Port                          Peer Address:Port            Process        
+udp              UNCONN             0                  0                                  127.0.0.1:323                                0.0.0.0:*                              
+udp              UNCONN             0                  0                                      [::1]:323                                   [::]:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:7000                               0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:7100                               0.0.0.0:*                              
+tcp              LISTEN             0                  4096                               10.0.0.10:15433                              0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:12000                              0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:9042                               0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:9000                               0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:9100                               0.0.0.0:*                              
+tcp              LISTEN             0                  128                                10.0.0.10:13000                              0.0.0.0:*                              
+tcp              LISTEN             0                  624                                10.0.0.10:5433                               0.0.0.0:*                              
+tcp              LISTEN             0                  128                                  0.0.0.0:22                                 0.0.0.0:*                              
+tcp              LISTEN             0                  128                                     [::]:22                                    [::]:*                              
+[shettyanisha2004@ybdb1 ~]$ 
+```
+
+
+Perfect — I’ll give you **FULL FINAL FILE (copy-paste ready)** + exactly **where to update** 🔥
+
+---
+
+# 📁 FILE TO UPDATE
+
+👉 Go to your:
+
+```text
+terraform_gcp/Network/.auto.tfvars
+```
+
+👉 Replace ONLY the `firewall_rules` block
+
+---
+
+# ✅ 🔐 FINAL ENTERPRISE FIREWALL (PASTE THIS)
+
+```hcl
+firewall_rules = {
+
+  # ✅ Internal communication (VPC only)
+  allow-internal = {
+    direction     = "INGRESS"
+    priority      = 65534
+    protocol      = "all"
+    ports         = []
+    source_ranges = ["10.0.0.0/24"]
+    target_tags   = ["yugabyte"]
+  }
+
+  # ✅ SSH via IAP ONLY (no public SSH)
+  allow-iap-ssh = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["22"]
+    source_ranges = ["35.235.240.0/20"]
+    target_tags   = ["allow-ssh"]
+  }
+
+  # ✅ Yugabyte DB + UI (internal only)
+  allow-yugabyte = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["7000", "9000", "9042", "5433", "15433"]
+    source_ranges = ["10.0.0.0/24"]
+    target_tags   = ["yugabyte"]
+  }
+
+  # ✅ Jenkins (internal only)
+  jenkins-port = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["8080"]
+    source_ranges = ["10.0.0.0/24"]
+    target_tags   = ["jenkins","softwares"]
+  }
+
+  # ✅ Monitoring (internal only)
+  monitoring-port = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["3000","9090","9200","9115"]
+    source_ranges = ["10.0.0.0/24"]
+    target_tags   = ["jenkins","softwares"]
+  }
+
+}
+```
+
+---
+
+# ❌ DELETE THESE (IMPORTANT)
+
+Remove completely from your file:
+
+```hcl
+allow-ssh ❌
+allow-yugabyte-ui-what-is-my-ip ❌
+allow-yugabyte-ui-via-bastion-monitoring-vm ❌
+```
+
+---
+
+# 📁 SECOND FILE TO UPDATE (VERY IMPORTANT)
+
+👉 Go to:
+
+```text
+YBA_Terraform_Clusters/.auto.tfvars
+```
+
+---
+
+## 🔧 Change THIS
+
+### ❌ OLD:
+
+```hcl
+enable_external_ip = true
+```
+
+### ✅ NEW:
+
+```hcl
+enable_external_ip = false
+```
+
+👉 Do this for:
+
+* ybdb cluster ✅
+* monitor VM ✅
+
+---
+
+# 📁 THIRD FILE (OPTIONAL BUT ENTERPRISE)
+
+👉 Inside your module:
+
+```text
+modules/yugabyte_db_engine/main.tf
+```
+
+---
+
+## 🔧 Add this inside `google_compute_instance`
+
+```hcl
+metadata = {
+  enable-oslogin = "TRUE"
+}
+```
+
+---
+
+# 🚀 APPLY EVERYTHING
+
+Run:
+
+```bash
+terraform apply
+```
+
+---
+
+# 🔐 HOW TO ACCESS (ENTERPRISE WAY)
+
+---
+
+## ✅ SSH (NO public IP)
+
+```bash
+gcloud compute ssh monitor1 \
+--zone us-central1-a \
+--project project-7b6bf38a-3ad2-4d2b-bdb \
+--tunnel-through-iap
+```
+
+---
+
+## ✅ Yugabyte UI
+
+```bash
+gcloud compute ssh monitor1 \
+--zone us-central1-a \
+--project project-7b6bf38a-3ad2-4d2b-bdb \
+--tunnel-through-iap \
+-- -L 15433:10.0.0.10:15433
+```
+
+Then open:
+
+```text
+http://localhost:15433
+```
+
+---
+
+# 🧠 FINAL RESULT
+
+
+| Feature   | Status        |
+| --------- | ------------- |
+| Public IP | ❌ Removed    |
+| SSH       | IAP only      |
+| DB        | Private       |
+| UI        | Secure tunnel |
+| Security  | 🏦 Enterprise |
+
+---
+
+# 🏆 YOU JUST BUILT
+
+👉 Real-world:
+
+* Banking infra 🏦
+* Production DevOps setup ⚙️
+* Zero-trust architecture 🔐
+
+---
+
+# 🚀 NEXT (if you want)
+
+I can help you:
+
+* 🔥 Add HTTPS + Load Balancer
+* 🔥 Secure Grafana with login
+* 🔥 Monitoring alerts (real production)
+* 🔥 CI/CD pipeline
+
+Just say:
+👉 **“next step”**
