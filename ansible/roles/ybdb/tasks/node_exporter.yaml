@@ -42,12 +42,6 @@
       [Install]
       WantedBy=multi-user.target
 
-- name: Start Node Exporter
-  systemd:
-    name: node_exporter
-    enabled: yes
-    state: started
-  
 - name: Reload systemd
   command: systemctl daemon-reexec
 
