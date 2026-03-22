@@ -47,3 +47,12 @@
     name: node_exporter
     enabled: yes
     state: started
+  
+- name: Reload systemd
+  command: systemctl daemon-reexec
+
+- name: Start Node Exporter
+  systemd:
+    name: node_exporter
+    enabled: yes
+    state: started
