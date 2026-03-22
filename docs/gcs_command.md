@@ -13,8 +13,8 @@ compiled crcmod installed (see "gsutil help crcmod"). This is because
 without a compiled crcmod, computing checksums on composite objects is
 so slow that gsutil disables downloads of composite objects.
 
-/ [1 files][  1.8 GiB/  1.8 GiB]                  
-Operation completed over 1 objects/1.8 GiB.        
+/ [1 files][  1.8 GiB/  1.8 GiB]              
+Operation completed over 1 objects/1.8 GiB.    
 [adev4769@packer ~]$ gsutil ls gs://yba-backup-bucket-001/
 gs://yba-backup-bucket-001/yba_installer_full-2024.2.4.0-b89-linux-x86_64.tar.gz
 [adev4769@packer ~]$ 
@@ -184,20 +184,20 @@ C:\Users\User>
 
 ```
 [shettyanisha2004@ybdb1 ~]$ ss -tulnp
-Netid            State              Recv-Q             Send-Q                         Local Address:Port                          Peer Address:Port            Process    
-udp              UNCONN             0                  0                                  127.0.0.1:323                                0.0.0.0:*                          
-udp              UNCONN             0                  0                                      [::1]:323                                   [::]:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:7000                               0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:7100                               0.0.0.0:*                          
-tcp              LISTEN             0                  4096                               10.0.0.10:15433                              0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:12000                              0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:9042                               0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:9000                               0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:9100                               0.0.0.0:*                          
-tcp              LISTEN             0                  128                                10.0.0.10:13000                              0.0.0.0:*                          
-tcp              LISTEN             0                  624                                10.0.0.10:5433                               0.0.0.0:*                          
-tcp              LISTEN             0                  128                                  0.0.0.0:22                                 0.0.0.0:*                          
-tcp              LISTEN             0                  128                                     [::]:22                                    [::]:*                          
+Netid            State              Recv-Q             Send-Q                         Local Address:Port                          Peer Address:Port            Process  
+udp              UNCONN             0                  0                                  127.0.0.1:323                                0.0.0.0:*                      
+udp              UNCONN             0                  0                                      [::1]:323                                   [::]:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:7000                               0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:7100                               0.0.0.0:*                      
+tcp              LISTEN             0                  4096                               10.0.0.10:15433                              0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:12000                              0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:9042                               0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:9000                               0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:9100                               0.0.0.0:*                      
+tcp              LISTEN             0                  128                                10.0.0.10:13000                              0.0.0.0:*                      
+tcp              LISTEN             0                  624                                10.0.0.10:5433                               0.0.0.0:*                      
+tcp              LISTEN             0                  128                                  0.0.0.0:22                                 0.0.0.0:*                      
+tcp              LISTEN             0                  128                                     [::]:22                                    [::]:*                      
 [shettyanisha2004@ybdb1 ~]$ 
 ```
 
@@ -211,19 +211,16 @@ metadata = {
 
 ---
 
+## Access to a monitor UI
 
-```# 🔐 HOW TO ACCESS (ENTERPRISE WAY)
+```
 
----
-
-## ✅ SSH (NO public IP)
-
-```bash
 gcloud compute ssh monitor1 \
 --zone us-central1-a \
 --project project-7b6bf38a-3ad2-4d2b-bdb \
 --tunnel-through-iap
 ```
+
 ---
 
 ## ✅ Yugabyte UI
@@ -235,11 +232,13 @@ gcloud compute ssh monitor1 \
 --tunnel-through-iap \
 -- -L 15433:10.0.0.10:15433
 ```
+
 Then open:
 
 ```text
 http://localhost:15433
 ```
+
 ---
 
 # 🧠 FINAL RESULT
