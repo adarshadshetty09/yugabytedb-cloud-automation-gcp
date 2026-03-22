@@ -1,2 +1,24 @@
 ---
 # tasks file for ybdb
+
+- name: Install dependencies (RHEL)
+  yum:
+    name:
+      - wget
+      - curl
+      - tar
+    state: present
+
+# Install Node Exporter ONLY on DB nodes
+- name: Install Node Exporter
+  import_tasks: node_exporter.yaml
+  when: "'nodes' in group_names"
+
+# Install Prometheus + Grafana ONLY on monitor
+- name: Install Prometheus
+  import_tasks: prometheus.yaml
+  when: "'monitor' in group_names"
+
+- name: Install Grafana
+  import_tasks: grafana.yaml
+  when: "'monitor' in group_names"

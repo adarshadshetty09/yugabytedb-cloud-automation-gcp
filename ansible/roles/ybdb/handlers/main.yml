@@ -1,2 +1,6 @@
 ---
 # handlers file for ybdb
+- name: Restart Prometheus
+  systemd:
+    name: prometheus
+    state: restarted

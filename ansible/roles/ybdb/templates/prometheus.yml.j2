@@ -1,0 +1,74 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alert.rules.yml"
+
+scrape_configs:
+
+  # =============================
+  #  Prometheus Self Monitoring
+  # =============================
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["10.0.0.14:9090"]
+
+  # =============================
+  #  Node Exporter (System Metrics)
+  # =============================
+  - job_name: "node-exporter"
+    static_configs:
+      - targets:
+          - "10.0.0.1:9200"
+          - "10.0.0.2:9200"
+          - "10.0.0.3:9200"
+
+  # =============================
+  #  YugabyteDB Masters
+  # =============================
+  - job_name: "yugabyte-masters"
+    metrics_path: /prometheus-metrics
+    static_configs:
+      - targets:
+          - "10.0.0.1:7000"
+          - "10.0.0.2:7000"
+          - "10.0.0.3:7000"
+
+  # =============================
+  #  YugabyteDB TServers
+  # =============================
+  - job_name: "yugabyte-tservers"
+    metrics_path: /prometheus-metrics
+    static_configs:
+      - targets:
+          - "10.0.0.1:9000"
+          - "10.0.0.2:9000"
+          - "10.0.0.3:9000"
+
+  # =============================
+  #  Blackbox Exporter (Optional - Health Checks)
+  # =============================
+  - job_name: "blackbox"
+    metrics_path: /probe
+    params:
+      module: [http_2xx]
+    static_configs:
+      - targets:
+          - http://10.0.0.1:7000
+          - http://10.0.0.2:7000
+          - http://10.0.0.3:7000
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: 10.0.0.10:9115   # blackbox exporter IP
+
+  # =============================
+  #  Alertmanager (Optional)
+  # =============================
+  - job_name: "alertmanager"
+    static_configs:
+      - targets: ["10.0.0.10:9093"]

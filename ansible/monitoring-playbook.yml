@@ -1,0 +1,9 @@
+- hosts: nodes
+  become: yes
+  roles:
+    - ybdb   # installs node_exporter here
+
+- hosts: monitor
+  become: yes
+  roles:
+    - ybdb   # installs prometheus + grafana here
