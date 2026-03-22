@@ -44,19 +44,6 @@
     - prometheus
     - promtool
 
-# Optional but good (console files)
-- name: Copy consoles
-  copy:
-    src: "{{ prometheus_dir.files[0].path }}/consoles"
-    dest: /etc/prometheus/
-    remote_src: yes
-
-- name: Copy console libraries
-  copy:
-    src: "{{ prometheus_dir.files[0].path }}/console_libraries"
-    dest: /etc/prometheus/
-    remote_src: yes
-
 - name: Set ownership
   file:
     path: "{{ item }}"
