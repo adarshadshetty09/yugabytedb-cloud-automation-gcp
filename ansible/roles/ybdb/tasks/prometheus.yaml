@@ -13,10 +13,11 @@
     - /etc/prometheus
     - /var/lib/prometheus
 
+# use curl instead of get_url
 - name: Download Prometheus
-  get_url:
-    url: https://github.com/prometheus/prometheus/releases/latest/download/prometheus-2.51.2.linux-amd64.tar.gz
-    dest: /tmp/prometheus.tar.gz
+  command: >
+    curl -L -o /tmp/prometheus.tar.gz
+    https://github.com/prometheus/prometheus/releases/download/v3.10.0/prometheus-3.10.0.linux-amd64.tar.gz
 
 - name: Extract Prometheus
   unarchive:
@@ -24,15 +25,47 @@
     dest: /tmp
     remote_src: yes
 
-- name: Copy binaries
+#  find extracted directory (no wildcard)
+- name: Find extracted prometheus directory
+  find:
+    paths: /tmp
+    patterns: "prometheus-*"
+    file_type: directory
+  register: prometheus_dir
+
+#  copy binaries correctly
+- name: Copy Prometheus binaries
   copy:
-    src: /tmp/prometheus-*/{{ item }}
+    src: "{{ prometheus_dir.files[0].path }}/{{ item }}"
     dest: /usr/local/bin/{{ item }}
     mode: '0755'
     remote_src: yes
   loop:
     - prometheus
     - promtool
+
+# Optional but good (console files)
+- name: Copy consoles
+  copy:
+    src: "{{ prometheus_dir.files[0].path }}/consoles"
+    dest: /etc/prometheus/
+    remote_src: yes
+
+- name: Copy console libraries
+  copy:
+    src: "{{ prometheus_dir.files[0].path }}/console_libraries"
+    dest: /etc/prometheus/
+    remote_src: yes
+
+- name: Set ownership
+  file:
+    path: "{{ item }}"
+    owner: prometheus
+    group: prometheus
+    recurse: yes
+  loop:
+    - /etc/prometheus
+    - /var/lib/prometheus
 
 - name: Copy config
   template:
@@ -46,6 +79,8 @@
     content: |
       [Unit]
       Description=Prometheus
+      Wants=network-online.target
+      After=network-online.target
 
       [Service]
       User=prometheus
@@ -53,8 +88,14 @@
         --config.file=/etc/prometheus/prometheus.yml \
         --storage.tsdb.path=/var/lib/prometheus
 
+      Restart=always
+
       [Install]
       WantedBy=multi-user.target
+
+
+- name: Reload systemd
+  command: systemctl daemon-reexec
 
 - name: Start Prometheus
   systemd:
