@@ -14,11 +14,11 @@
     - /var/lib/prometheus
 
 # use curl instead of get_url
-- name: Download Prometheus
+- name: Download Prometheus using curl
   command: >
     curl -L -o /tmp/prometheus.tar.gz
     https://github.com/prometheus/prometheus/releases/download/v3.10.0/prometheus-3.10.0.linux-amd64.tar.gz
-
+    
 - name: Extract Prometheus
   unarchive:
     src: /tmp/prometheus.tar.gz
