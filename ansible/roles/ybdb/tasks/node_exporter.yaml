@@ -14,9 +14,16 @@
     dest: /tmp
     remote_src: yes
 
-- name: Copy binary
+- name: Find extracted node exporter directory
+  find:
+    paths: /tmp
+    patterns: "node_exporter-*"
+    file_type: directory
+  register: node_exporter_dir
+
+- name: Copy node exporter binary
   copy:
-    src: /tmp/node_exporter-*/node_exporter
+    src: "{{ node_exporter_dir.files[0].path }}/node_exporter"
     dest: /usr/local/bin/node_exporter
     mode: '0755'
     remote_src: yes
