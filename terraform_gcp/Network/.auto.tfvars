@@ -60,7 +60,7 @@ firewall_rules = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
-    ports         = ["3000","9090","9200","9115"]
+    ports         = ["3000","9090","9200","9115","9093"]
     source_ranges = ["10.0.0.0/24"]
     target_tags   = ["jenkins","softwares"]
   }
