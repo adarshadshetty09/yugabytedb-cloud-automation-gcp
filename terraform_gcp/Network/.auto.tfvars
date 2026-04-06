@@ -1,7 +1,7 @@
 project_id         = "project-7b6bf38a-3ad2-4d2b-bdb"
 network_project_id = "project-7b6bf38a-3ad2-4d2b-bdb"
 
-region = "us-central1"
+region = "us-south1"
 
 vpc = {
   name = "vpc-yugabyte-terraform-cluster"
@@ -12,236 +12,112 @@ subnet = {
   cidr = "10.0.0.0/24"
 }
 
-
 firewall_rules = {
 
-  #  Internal communication (VPC only)
+  #  Internal communication inside VPC
   allow-internal = {
     direction     = "INGRESS"
     priority      = 65534
     protocol      = "all"
     ports         = []
     source_ranges = ["10.0.0.0/24"]
-    target_tags   = ["yugabyte"]
+    target_tags   = ["internal"]
   }
 
-  #  SSH via IAP ONLY (no public SSH)
-  allow-iap-ssh = {
+  #  Public SSH (for practice only)
+  allow-ssh-public = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports         = ["22"]
-    source_ranges = ["35.235.240.0/20"]
-    target_tags   = ["allow-ssh"]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["k8s"]
   }
 
-  #  Yugabyte DB + UI (internal only)
-  allow-yugabyte = {
+  #  Kubernetes Core Ports (PUBLIC for practice)
+  k8s-cluster = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
-    ports         = ["7000", "9000", "9042", "5433", "15433"]
-    source_ranges = ["10.0.0.0/24"]
-    target_tags   = ["yugabyte"]
+    ports = [
+      "6443",            # API Server
+      "2379-2380",       # etcd
+      "10250",           # kubelet
+      "10257",           # controller-manager
+      "10259",           # scheduler
+      "30000-32767",     # NodePort Services
+      "80",              # HTTP
+      "443"              # HTTPS
+    ]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["k8s"]
   }
 
-  #  Jenkins (internal only)
-  jenkins-port = {
+  #  Calico Networking (PUBLIC for practice)
+  k8s-calico-tcp = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports         = ["179"]   # BGP
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["k8s"]
+  }
+
+  k8s-calico-udp = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "udp"
+    ports         = ["4789"]  # VXLAN
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["k8s"]
+  }
+
+  #  Optional: Open ALL ports (use ONLY if needed)
+  allow-all = {
+    direction     = "INGRESS"
+    priority      = 2000
+    protocol      = "all"
+    ports         = []
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["k8s"]
+  }
+
+  #  Jenkins (keep internal or make public if needed)
+  jenkins = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports         = ["8080"]
-    source_ranges = ["10.0.0.0/24"]
-    target_tags   = ["jenkins","softwares"]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["jenkins"]
   }
 
-  #  Monitoring (internal only)
-  monitoring-port = {
+  #  Monitoring tools (optional public)
+  monitoring = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
-    ports         = ["3000","9090","9200","9115","9093"]
-    source_ranges = ["10.0.0.0/24"]
-    target_tags   = ["jenkins","softwares"]
+    ports         = ["3000", "9090", "9200", "9115", "9093", "9187"]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["monitoring"]
   }
 
+  # Yugabyte DB ( public only for learning)
+  yugabyte = {
+    direction     = "INGRESS"
+    priority      = 1000
+    protocol      = "tcp"
+    ports = [
+      "7000", "7100",
+      "9000", "9100",
+      "9042", "5433",
+      "15433", "18018",
+      "9300", "9070",
+      "12000", "13000"
+    ]
+    source_ranges = ["0.0.0.0/0"]
+    target_tags   = ["yugabyte"]
+  }
+
+  
 }
-
-
-
-# firewall_rules = {
-
-#   # ✅ Internal communication (ONLY inside VPC)
-#   allow-internal = {
-#     direction     = "INGRESS"
-#     priority      = 65534
-#     protocol      = "all"
-#     ports         = []
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["yugabyte"]
-#   }
-
-#   # ✅ SSH ONLY from your laptop (VERY IMPORTANT)
-#   allow-ssh = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["22"]
-#     source_ranges = ["27.59.21.38/32"]   # <-- YOUR IP
-#     target_tags   = ["allow-ssh"]
-#   }
-
-#   # ✅ Yugabyte DB access ONLY internal
-#   allow-yugabyte = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["7000", "9000", "9042", "5433"]
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["yugabyte"]
-#   }
-  
-
-# allow-iap-ssh = {
-#   direction     = "INGRESS"
-#   priority      = 1000
-#   protocol      = "tcp"
-#   ports         = ["22"]
-#   source_ranges = ["35.235.240.0/20"]   # Google IAP range
-#   target_tags   = ["allow-ssh"]
-# }
-
-#   # ✅ Jenkins (internal only)
-#   jenkins-port = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["8080"]
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["jenkins","softwares"]
-#   }
-
-#   # ✅ Monitoring (internal only)
-#   monitoring-port = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["3000","9090","9200","9115"]
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["jenkins","softwares"]
-#   }
-
-
-#   allow-yugabyte-ui-via-bastion-monitoring-vm = {
-#   direction     = "INGRESS"
-#   priority      = 1000
-#   protocol      = "tcp"
-#   ports         = ["15433"]
-#   source_ranges = ["10.0.0.0/24"]
-#   target_tags   = ["yugabyte"]
-#   }
-
-
-#   allow-yugabyte-ui-what-is-my-ip = {
-#   direction     = "INGRESS"
-#   priority      = 1000
-#   protocol      = "tcp"
-#   ports         = ["15433"]
-#   source_ranges = ["27.59.21.38/32"]   # your IP
-#   target_tags   = ["yugabyte"]
-#   }
-# }
-
-
-# firewall_rules = {
-#   allow-internal = {
-#     direction     = "INGRESS"
-#     priority      = 65534
-#     protocol      = "all"
-#     ports         = []
-#     # source_ranges = ["10.0.0.0/24"]
-#     source_ranges = ["0.0.0.0/0"]
-#     target_tags   = ["yugabyte"]
-#   }
-
-#   allow-ssh = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["22"]
-#     # source_ranges = ["10.0.0.0/24"]
-#     source_ranges = ["0.0.0.0/0"]
-#     target_tags   = ["allow-ssh"]
-#   }
-
-#   allow-yugabyte = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["7000", "9000", "9042", "5433","443"]
-#     # source_ranges = ["10.0.0.0/24"]
-#     source_ranges = ["0.0.0.0/0"]
-#     target_tags   = ["yugabyte"]
-#   }
-
-
-#   allow-yugabyte-all-port = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports = [
-#   "22",
-#   "80",
-#   "443",
-#   "5432",
-#   "5433",
-#   "6379",
-#   "7000",
-#   "7100",
-#   "9000",
-#   "9100",
-#   "9300",
-#   "9400",
-#   "9042",
-#   "54422",
-#   "15433"
-# ]
-#     # source_ranges = ["10.0.0.0/24"]
-#     source_ranges = ["0.0.0.0/0"]
-#     target_tags   = ["yugabyte"]
-#   }
-
-#   jenkins-port = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["8080"]
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["jenkins","softwares"]
-#   }
-
-#   monitoring-port = {
-#     direction     = "INGRESS"
-#     priority      = 1000
-#     protocol      = "tcp"
-#     ports         = ["3000","9090","9200","9115"]
-#     source_ranges = ["10.0.0.0/24"]
-#     target_tags   = ["jenkins","softwares"]
-#   }
-
-  
-
-# #   allow-iap-ssh = {
-# #   direction     = "INGRESS"
-# #   priority      = 1000
-# #   protocol      = "tcp"
-# #   ports         = ["22"]
-# #   source_ranges = ["35.235.240.0/20"]  # Google IAP range
-# #   target_tags   = ["yugabyte"]
-# # }
-# }
-
-
-
-# peer_ip       = "223.237.162.59"
-# shared_secret = "test123"   # (for now, ok for learning)
