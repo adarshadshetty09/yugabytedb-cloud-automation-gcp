@@ -21,45 +21,48 @@ firewall_rules = {
     protocol      = "all"
     ports         = []
     source_ranges = ["10.0.0.0/24"]
-    target_tags   = ["internal"]
+    target_tags   = ["internal","k8s","yugabyte","monitoring","jenkins"]
   }
 
-  #  Public SSH (for practice only)
-  allow-ssh-public = {
+  #  SSH via IAP (NO public SSH)
+  allow-ssh-iap = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports         = ["22"]
-    source_ranges = ["0.0.0.0/0"]
-    target_tags   = ["k8s"]
+
+    # 🔥 Google IAP IP range
+    source_ranges = ["35.235.240.0/20"]
+
+    target_tags   = ["allow-ssh"]
   }
 
-  #  Kubernetes Core Ports (PUBLIC for practice)
+  #  Kubernetes Core Ports (ONLY INTERNAL)
   k8s-cluster = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports = [
-      "6443",            # API Server
-      "2379-2380",       # etcd
-      "10250",           # kubelet
-      "10257",           # controller-manager
-      "10259",           # scheduler
-      "30000-32767",     # NodePort Services
-      "80",              # HTTP
-      "443"              # HTTPS
+      "6443",
+      "2379-2380",
+      "10250",
+      "10257",
+      "10259",
+      "30000-32767",
+      "80",
+      "443"
     ]
-    source_ranges = ["0.0.0.0/0"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["k8s"]
   }
 
-  #  Calico Networking (PUBLIC for practice)
+  #  Calico (ONLY INTERNAL)
   k8s-calico-tcp = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
-    ports         = ["179"]   # BGP
-    source_ranges = ["0.0.0.0/0"]
+    ports         = ["179"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["k8s"]
   }
 
@@ -67,42 +70,34 @@ firewall_rules = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "udp"
-    ports         = ["4789"]  # VXLAN
-    source_ranges = ["0.0.0.0/0"]
+    ports         = ["4789"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["k8s"]
   }
 
-  #  Optional: Open ALL ports (use ONLY if needed)
-  allow-all = {
-    direction     = "INGRESS"
-    priority      = 2000
-    protocol      = "all"
-    ports         = []
-    source_ranges = ["0.0.0.0/0"]
-    target_tags   = ["k8s"]
-  }
+  #  REMOVED allow-all (unsafe)
 
-  #  Jenkins (keep internal or make public if needed)
+  #  Jenkins (INTERNAL ONLY)
   jenkins = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports         = ["8080"]
-    source_ranges = ["0.0.0.0/0"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["jenkins"]
   }
 
-  #  Monitoring tools (optional public)
+  #  Monitoring (INTERNAL ONLY)
   monitoring = {
     direction     = "INGRESS"
     priority      = 1000
     protocol      = "tcp"
     ports         = ["3000", "9090", "9200", "9115", "9093", "9187"]
-    source_ranges = ["0.0.0.0/0"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["monitoring"]
   }
 
-  # Yugabyte DB ( public only for learning)
+  #  Yugabyte (INTERNAL ONLY)
   yugabyte = {
     direction     = "INGRESS"
     priority      = 1000
@@ -115,9 +110,8 @@ firewall_rules = {
       "9300", "9070",
       "12000", "13000"
     ]
-    source_ranges = ["0.0.0.0/0"]
+    source_ranges = ["10.0.0.0/24"]
     target_tags   = ["yugabyte"]
   }
 
-  
 }
